@@ -10,6 +10,8 @@ import { AddDepartamentoComponent } from './components/add-departamento/add-depa
 import { AddPropietarioComponent } from './components/add-propietario/add-propietario.component';
 import { AddVisitanteComponent } from './components/add-visitante/add-visitante.component';
 import { AddEdificioComponent } from './components/add-edificio/add-edificio.component';
+import { LoginComponent } from './components/login/login.component';
+import { AppMainComponent } from './app.main.component';
 
 
 
@@ -20,7 +22,9 @@ import { AddEdificioComponent } from './components/add-edificio/add-edificio.com
     AddPropietarioComponent,
     AddVisitanteComponent,
     AddDepartamentoComponent,
-    AddEdificioComponent
+    AddEdificioComponent,
+    LoginComponent,
+    AppMainComponent
 
   ],
   imports: [

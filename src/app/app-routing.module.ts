@@ -7,14 +7,21 @@ import { AddMascotaComponent } from './components/add-mascota/add-mascota.compon
 import { AddDepartamentoComponent } from './components/add-departamento/add-departamento.component';
 import { AddPropietarioComponent } from './components/add-propietario/add-propietario.component';
 import { AddVisitanteComponent } from './components/add-visitante/add-visitante.component';
-
+import { LoginComponent } from './components/login/login.component';
+import { AppMainComponent } from './app.main.component';
 
 
 const routes: Routes = [
-  {path:"registraDepartamento",component:AddDepartamentoComponent},
-  {path:"registraPropietario",component:AddPropietarioComponent},
-  {path:"registraMascota",component:AddMascotaComponent},
-  {path:"reigstraVisitante",component:AddVisitanteComponent}
+  {path:"", component: LoginComponent },
+  {path:"login", component: LoginComponent },
+  { path:"spring", component: AppMainComponent,
+    children: [
+      {path:"registraDepartamento",component:AddDepartamentoComponent},
+      {path:"registraPropietario",component:AddPropietarioComponent},
+      {path:"registraMascota",component:AddMascotaComponent},
+      {path:"reigstraVisitante",component:AddVisitanteComponent}
+  ]
+  }
 ];
 
 @NgModule({
