@@ -27,6 +27,8 @@ import { TransaccionComprobanteComponent } from './components/transaccion-compro
 import { TransaccionPedidoComponent } from './components/transaccion-pedido/transaccion-pedido.component';
 import { ConsultaPedidoComponent } from './components/consulta-pedido/consulta-pedido.component';
 import { ConsultaComprobanteComponent } from './components/consulta-comprobante/consulta-comprobante.component';
+import { LoginComponent } from './components/login/login.component';
+import { AppMainComponent } from './app.main.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { ConsultaComprobanteComponent } from './components/consulta-comprobante/
 
     ConsultaPedidoComponent,
     ConsultaComprobanteComponent,
+    LoginComponent,
+    AppMainComponent
 
   ],
   imports: [

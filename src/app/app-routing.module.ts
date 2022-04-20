@@ -26,38 +26,46 @@ import { ConsultaPedidoComponent } from './components/consulta-pedido/consulta-p
 import { ConsultaComprobanteComponent } from './components/consulta-comprobante/consulta-comprobante.component';
 import { TransaccionPedidoComponent } from './components/transaccion-pedido/transaccion-pedido.component';
 import { TransaccionComprobanteComponent } from './components/transaccion-comprobante/transaccion-comprobante.component';
+import { LoginComponent } from './components/login/login.component';
+import { AppMainComponent } from './app.main.component';
 
 
 
 const routes: Routes = [
-  {path:"registraCliente", component:RegistraClienteComponent },
-  {path:"registraMarca", component:RegistraMarcaComponent },
-  {path:"registraProducto", component:RegistraProductoComponent },
-  {path:"registraProveedor", component:RegistraProveedorComponent },
-  {path:"registraReclamo", component:RegistraReclamoComponent},
-  {path:"registraSede", component:RegistraSedeComponent},
-  {path:"registraUsuario", component:RegistraUsuarioComponent},
-
-  {path:"crudCliente", component:CrudClienteComponent },
-  {path:"crudMarca", component:CrudMarcaComponent },
-  {path:"crudProducto", component:CrudProductoComponent },
-  {path:"crudProveedor", component:CrudProveedorComponent },
-  {path:"crudReclamo", component:CrudReclamoComponent},
-  {path:"crudSede", component:CrudSedeComponent},
-  {path:"crudUsuario", component:CrudUsuarioComponent},
-
-  {path:"consultaCliente", component:ConsultaClienteComponent },
-  {path:"consultaMarca", component:ConsultaMarcaComponent },
-  {path:"consultaProducto", component:ConsultaProductoComponent },
-  {path:"consultaProveedor", component:ConsultaProveedorComponent },
-  {path:"consultaReclamo", component:ConsultaReclamoComponent},
-  {path:"consultaSede", component:ConsultaSedeComponent},
-  {path:"consultaUsuario", component:ConsultaUsuarioComponent},
-  {path:"consultaPedido", component:ConsultaPedidoComponent},
-  {path:"consultaComprobante", component:ConsultaComprobanteComponent},
-
-  {path:"registraPedido", component:TransaccionPedidoComponent},
-  {path:"registraComprobante", component:TransaccionComprobanteComponent},
+  {path:"", component: LoginComponent },
+  {path:"login", component: LoginComponent },
+  { path:"spring", component: AppMainComponent,
+    children: [
+      {path:"registraCliente", component:RegistraClienteComponent },
+      {path:"registraMarca", component:RegistraMarcaComponent },
+      {path:"registraProducto", component:RegistraProductoComponent },
+      {path:"registraProveedor", component:RegistraProveedorComponent },
+      {path:"registraReclamo", component:RegistraReclamoComponent},
+      {path:"registraSede", component:RegistraSedeComponent},
+      {path:"registraUsuario", component:RegistraUsuarioComponent},
+    
+      {path:"crudCliente", component:CrudClienteComponent },
+      {path:"crudMarca", component:CrudMarcaComponent },
+      {path:"crudProducto", component:CrudProductoComponent },
+      {path:"crudProveedor", component:CrudProveedorComponent },
+      {path:"crudReclamo", component:CrudReclamoComponent},
+      {path:"crudSede", component:CrudSedeComponent},
+      {path:"crudUsuario", component:CrudUsuarioComponent},
+    
+      {path:"consultaCliente", component:ConsultaClienteComponent },
+      {path:"consultaMarca", component:ConsultaMarcaComponent },
+      {path:"consultaProducto", component:ConsultaProductoComponent },
+      {path:"consultaProveedor", component:ConsultaProveedorComponent },
+      {path:"consultaReclamo", component:ConsultaReclamoComponent},
+      {path:"consultaSede", component:ConsultaSedeComponent},
+      {path:"consultaUsuario", component:ConsultaUsuarioComponent},
+      {path:"consultaPedido", component:ConsultaPedidoComponent},
+      {path:"consultaComprobante", component:ConsultaComprobanteComponent},
+    
+      {path:"registraPedido", component:TransaccionPedidoComponent},
+      {path:"registraComprobante", component:TransaccionComprobanteComponent},
+  ]
+  },
 
 ];
 

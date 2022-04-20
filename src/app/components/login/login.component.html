@@ -1,0 +1,25 @@
+<section class="login-block">
+    <div class="container">
+        <div class="row ">
+            <div class="col login-sec">
+                <h2 class="text-center">Sistema Portal</h2>
+                <form class="login-form">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" class="text-uppercase">Usuario</label>
+                        <input type="text" autocomplete="off" class="form-control" name="emailUsu" [(ngModel)]="usuario.emailUsu" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" class="text-uppercase">Contraseña</label>
+                        <input type="password" autocomplete="off" class="form-control" name="passUsu" [(ngModel)]="usuario.passUsu" placeholder="">
+                    </div>
+
+                    <div class="form-check">
+                        <span style="width:48%; text-align:left;  display: inline-block;"><a class="small-text" href="#">¿Nuevo Usuario?</a></span>
+                        <button type="submit" (click)="login()" class="btn btn-login float-right">Ingresar</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
