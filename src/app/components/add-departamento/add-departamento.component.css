@@ -1,0 +1,8 @@
+.submit-form {
+    padding: 5%;
+    margin: auto;
+}
+
+.error { 
+    color: blue;
+}
