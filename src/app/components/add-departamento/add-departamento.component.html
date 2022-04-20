@@ -1,1 +1,50 @@
-<p>add-departamento works!</p>
+<div>
+
+    <form class="content" (ngSubmit)="registraDepartamento()"  >
+    <div class="submit-form" >
+  
+         <div class="row">
+            <div class="col-lg-12">
+                <h4>Registro de Departamentos </h4>
+            </div>
+        </div>
+  
+        <div class="row" style="margin-top: 3%">
+                <div class="col-lg-6">
+                    <label for="razonsocial">Metros cuadrados</label>
+                    <input type="text" class="form-control" name="razonsocial" id="razonsocial" [(ngModel)] ="departamento.metros_dep"  />
+                </div>
+                          
+                <div class="col-lg-6">
+                    <label for="telefono">Telefono</label>
+                    <input type="text" class="form-control" name="telefono" id="telefono" maxlength="15" [(ngModel)] ="departamento.tel_dep"   />
+                </div>                         
+        </div>
+  
+        <div class="row" style="margin-top: 3%">
+            <div class="col-lg-6">
+                <label for="celular">Precio</label>
+                <input type="text" class="form-control" name="celular" id="celular" maxlength="9" [(ngModel)] ="departamento.pre_dep"   />
+            </div>
+
+            <div class="col-lg-6">
+                <label for="edificios">Edificio</label>
+                <select  id="edificios" name="edificios" class="form-control"  [(ngModel)] = "departamento.edificio!.cod_edi">
+                    <option value="-1"> [Seleccione] </option>   
+                    <option *ngFor="let aux of edificios" value="{{aux.cod_edi}}">
+                        {{aux.nom_edi}}
+                    </option>   
+                </select>
+            </div>
+        </div>
+  
+        <div class="row" style="margin-top: 3%"> 
+                <div class="col-lg-12">
+                    <button class="btn btn-success"  >Enviar</button>
+                </div>
+        </div>
+  
+    
+      </div>
+  
+     </form>

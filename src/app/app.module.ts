@@ -9,6 +9,7 @@ import { AddMascotaComponent } from './components/add-mascota/add-mascota.compon
 import { AddDepartamentoComponent } from './components/add-departamento/add-departamento.component';
 import { AddPropietarioComponent } from './components/add-propietario/add-propietario.component';
 import { AddVisitanteComponent } from './components/add-visitante/add-visitante.component';
+import { AddEdificioComponent } from './components/add-edificio/add-edificio.component';
 
 
 
@@ -18,7 +19,8 @@ import { AddVisitanteComponent } from './components/add-visitante/add-visitante.
     AddMascotaComponent,
     AddPropietarioComponent,
     AddVisitanteComponent,
-    AddDepartamentoComponent
+    AddDepartamentoComponent,
+    AddEdificioComponent
 
   ],
   imports: [
