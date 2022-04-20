@@ -32,7 +32,7 @@
                 <select  id="edificios" name="edificios" class="form-control"  [(ngModel)] = "departamento.edificio!.cod_edi">
                     <option value="-1"> [Seleccione] </option>   
                     <option *ngFor="let aux of edificios" value="{{aux.cod_edi}}">
-                        {{aux.cod_edi}}
+                        {{aux.nom_edi}}
                     </option>   
                 </select>
             </div>
