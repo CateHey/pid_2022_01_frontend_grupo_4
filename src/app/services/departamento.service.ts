@@ -16,8 +16,8 @@ export class DepartamentoService {
   registra(aux:Departamento):Observable<any>{
     return this.http.post<any>(baseUrl,aux);
   }
-  listarDepartamento(): Observable<string[]> {
-    return this.http.get<string[]>(baseUrl);
+  listarDepartamento(): Observable<Departamento[]> {
+    return this.http.get<Departamento[]>(baseUrl);
   }
 
 }

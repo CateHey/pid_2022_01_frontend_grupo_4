@@ -19,13 +19,15 @@ export class AddDepartamentoComponent implements OnInit {
 
   departamento: Departamento={
     cod_dep:0,
+    num_dep:"",
     metros_dep:0,
     tel_dep:"",
     edificio:{
       cod_edi:0,
       nom_edi:"",
     },
-    pre_dep:0
+    pre_dep:0,
+    fec_reg_dep: new Date()
   };
 
 
@@ -33,22 +35,40 @@ export class AddDepartamentoComponent implements OnInit {
     this.edifcioService.listarEdificio().subscribe(
       response => this.edificios=response
     );
+    this.departamentoService.listarDepartamento().subscribe(
+      response => this.departamentos=response
+    );
+    
+    console.log(this.departamentos)
    }
    
   ngOnInit(): void {
   }
-  /*listaEdificios(){
-    this.edifcioService.listarEdificio().subscribe(
-      response =>  this.edificios= response
-    );
-  }*/
-  
+
   registraDepartamento(){
     console.log(this.departamento);
     this.departamentoService.registra(this.departamento).subscribe(
       response => {
         console.log(response.mensaje);
-          alert(response.mensaje);
+        alert(response.mensaje);
+        
+        this.departamentoService.listarDepartamento().subscribe(
+          response => this.departamentos = response
+        );
+
+        this.departamento ={
+          cod_dep:0,
+          num_dep:"",
+          metros_dep:0,
+          tel_dep:"",
+          edificio:{
+            cod_edi:0,
+            nom_edi:"",
+          },
+          pre_dep:0,
+          fec_reg_dep: new Date()
+        };
+
       },
       error => {
           console.log(error);
