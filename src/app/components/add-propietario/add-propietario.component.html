@@ -41,7 +41,7 @@
 
             <div class="col-lg-6">
                 <label for="departamento">Departamento</label>
-                <select  id="departamento" name="edificios" class="form-control">
+                <select  id="departamento" name="edificios" class="form-control"[(ngModel)] = "propietario.departamento!.cod_dep">
                     <option value="-1"> [Seleccione] </option>   
                     <option *ngFor="let aux of departamentos" value="{{aux.cod_dep}}">
                         {{aux.cod_dep}}, {{aux.num_dep}}

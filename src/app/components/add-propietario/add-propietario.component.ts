@@ -41,6 +41,9 @@ export class AddPropietarioComponent implements OnInit {
     this.departamentoService.listarDepartamento().subscribe(
       response => this.departamentos = response
     );
+    this.propietarioService.listarPropietario().subscribe(
+      response => this.propietarios = response
+    );
         
   }
 

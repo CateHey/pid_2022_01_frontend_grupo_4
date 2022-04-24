@@ -4,7 +4,6 @@ export class Departamento {
     cod_dep?:number;
     num_dep?:string;
     metros_dep?:number;
-    num_dep?:string;
     tel_dep?:string;
     edificio?:Edificio;
     pre_dep?:number;
