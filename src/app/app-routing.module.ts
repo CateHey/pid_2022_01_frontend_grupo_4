@@ -19,7 +19,7 @@ const routes: Routes = [
       {path:"registraDepartamento",component:AddDepartamentoComponent},
       {path:"registraPropietario",component:AddPropietarioComponent},
       {path:"registraMascota",component:AddMascotaComponent},
-      {path:"reigstraVisitante",component:AddVisitanteComponent}
+      {path:"registraVisitante",component:AddVisitanteComponent}
   ]
   }
 ];
