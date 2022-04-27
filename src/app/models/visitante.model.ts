@@ -1,6 +1,8 @@
 import { Departamento } from "./departamento.model";
 
 export class Visitante {
+    cod_vis?:number;
+    fech_vis?:string;
     nom_vis?:string;
     ape_vis?:string;
     fechanac_vis?: Date;

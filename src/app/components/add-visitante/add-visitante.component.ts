@@ -12,6 +12,7 @@ import { VisitanteService } from 'src/app/services/visitante.service';
 export class AddVisitanteComponent implements OnInit {
 
   departamentos: Departamento [] = [];
+  visitantes: Visitante[]=[];
   visitante: Visitante = {
     cod_dep: {
       cod_dep: -1
@@ -22,6 +23,9 @@ export class AddVisitanteComponent implements OnInit {
       
     this.departamentoService.listarDepartamento().subscribe(
         (x) => this.departamentos = x
+    )
+    this.visitanteService.listarVisitante().subscribe(
+        (x) => this.visitantes = x
     )
     
    }

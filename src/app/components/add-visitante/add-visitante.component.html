@@ -59,6 +59,36 @@
         </div>
     
       </div>
+      <div class="row" *ngIf="visitantes.length != 0" style="margin-top: 3%">
+        <div class="col-md-12">
+          <div class="content">               
+            <table id="id_table" class="table table-striped table-bordered"><thead>
+                <tr>      
+                  <th style="width: 15%"># de Visitante</th>
+                  <th style="width: 30%">Fecha</th>
+                  <th style="width: 15%">Nombre</th>
+                  <th style="width: 10%">Apellido</th>
+                  <th style="width: 15%">Fecha Nacimiento</th>
+                  <th style="width: 30%">Dni</th>
+                  <th style="width: 30%">Correo</th>
+                  <th style="width: 30%">Telefono</th>
+                  <th style="width: 30%">Departamento</th>
+                </tr>
+              </thead> <tbody>
+                <tr *ngFor="let aux of visitantes">      
+                  <td>{{ aux.cod_vis }}</td>
+                  <td>{{ aux.fech_vis }}</td>
+                  <td>{{ aux.nom_vis }}</td>
+                  <td>{{ aux.ape_vis }}</td>
+                  <td>{{ aux.fechanac_vis }}</td>
+                  <td>{{ aux.dni_vis }}</td>
+                  <td>{{ aux.correo_vis }}</td>
+                  <td>{{ aux.tel_vis }}</td>
+                  <td>{{ aux.cod_dep!.cod_dep }}</td>
+                </tr></tbody></table>
+          </div>
+        </div>
+    </div>
 
      </form>
   
