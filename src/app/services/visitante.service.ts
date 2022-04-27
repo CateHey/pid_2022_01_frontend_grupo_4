@@ -16,5 +16,8 @@ export class VisitanteService {
   insertaVisitante(data:Visitante): Observable<any>{
       return this.http.post(baseURL, data);
   }
+  listarVisitante(): Observable<Visitante[]>{
+    return this.http.get<Visitante[]>(baseURL);
+  }
 
 }
