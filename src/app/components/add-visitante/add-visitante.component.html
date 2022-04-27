@@ -1,1 +1,65 @@
-<p>add-visitante works!</p>
+<div>
+
+    <form class="content" (ngSubmit)="registraVisita()" >
+    <div class="submit-form" >
+  
+        <div class="row" style="margin-top: 6%">
+            <div class="col-lg-12">
+                <h4>Registro de Visitantes: </h4>
+            </div>
+        </div>
+  
+        <div class="row" style="margin-top: 3%">
+        <div class="col-lg-3">
+            <label for="Nombre">Nombre</label>
+            <input type="text"  class="form-control" id="nombre"  name="nombre" maxlength="40" [(ngModel)] = "visitante.nom_vis"/>
+        </div>
+    
+        <div class="col-lg-3">
+            <label for="Apellido">Apellido</label>
+            <input type="text"  class="form-control" id="apellido"  name="apellido" maxlength="40" [(ngModel)] = "visitante.ape_vis"/>
+        </div>
+
+        <div class="col-lg-6">
+            <label for="fechanac_vis">Fecha Nacimiento</label>
+            <input type="date" class="form-control" name="fechanac_vis" id="fechanac_vis"  [(ngModel)] = "visitante.fechanac_vis" /> 
+        </div>
+        
+
+        <div class="col-lg-3" style="margin-top: 2%">
+            <label for="dni_vis">DNI</label>
+            <input type="text"  class="form-control" id="dni_vis"  name="dni_vis" [(ngModel)] = "visitante.dni_vis"/>
+        </div>
+
+        <div class="col-lg-3" style="margin-top: 2%">
+            <label for="correo_vis">Correo electronico</label>
+            <input type="text"  class="form-control" id="correo_vis"  name="correo_vis" [(ngModel)] = "visitante.correo_vis"/>
+        </div>
+
+        <div class="col-lg-3" style="margin-top: 2%">
+            <label for="tel_vis">Telefono</label>
+            <input type="text"  class="form-control" id="tel_vis"  name="tel_vis" [(ngModel)] = "visitante.tel_vis"/>
+        </div>
+            
+        </div>
+
+        <label for="cod_dep"  style="margin-top: 2%">Departamento</label>
+            <select  id="cod_dep" name="cod_dep" class="form-control"  [(ngModel)] = "visitante.cod_dep!.cod_dep">
+                <option value="-1"> [Seleccione departamento] </option>   
+                <option *ngFor="let aux of departamentos" value="{{aux.cod_dep}}">
+                    {{aux.num_dep}}
+                </option>   
+            </select>
+        
+  
+        <div class="row" style="margin-top: 4%"> 
+                <div class="col-lg-12">
+                    <button class="btn btn-success"  >REGISTRAR</button>
+                </div>
+        </div>
+    
+      </div>
+
+     </form>
+  
+</div>
