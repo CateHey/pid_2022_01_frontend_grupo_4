@@ -1,14 +1,13 @@
 export class Usuario {
 
     cod_usu?: number;
-    nomUsu?: string; 
-    apeUsu?: string;
-    dniUsu?: string;
-    telUsu?: string;
-    emailUsu?: string;
-    passUsu?: string;
-    colRol?: number; 
-    codDep?: number; 
+    nom_usu?: string; 
+    ape_usu?: string;
+    dni_usu?: string;
+    tel_usu?: string;
+    email_usu?: string;
+    pass_usu?: string;
+    fech_reg_usu?: Date; 
     
 }
 

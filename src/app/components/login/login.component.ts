@@ -22,30 +22,30 @@ export class LoginComponent implements OnInit {
     if (!this.validar()) {
       return;
     }
-    // this.usuarioService.login(this.usuario).subscribe(
-    //   response => {
-    //     console.log(response);
-    //     if (response.mensaje == '') {
+    this.usuarioService.login(this.usuario).subscribe(
+      response => {
+        console.log(response);
+        if (response.mensaje == '') {
           this.router.navigate(['spring']);
-    //     } else {
-    //       alert(response.mensaje);
-    //     }
-    //   },
-    //   error => {
-    //     console.log(error);
-    //   }
-    // )
+        } else {
+          alert(response.mensaje);
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
 
   validar(): boolean {
     let retorno: boolean = true;
 
-    if (this.usuario.emailUsu === undefined || this.usuario.emailUsu == null || this.usuario.emailUsu == '') {
+    if (this.usuario.email_usu === undefined || this.usuario.email_usu == null || this.usuario.email_usu == '') {
       alert("Es requerido ingresar el Usuario");
       retorno = false;
     }
 
-    if (this.usuario.passUsu === undefined || this.usuario.passUsu == null || this.usuario.passUsu == '') {
+    if (this.usuario.pass_usu === undefined || this.usuario.pass_usu == null || this.usuario.pass_usu == '') {
       alert("Es requerido ingresar la Contraseña");
       retorno = false;
     }
