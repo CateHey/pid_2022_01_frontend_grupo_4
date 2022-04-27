@@ -19,9 +19,11 @@ export class AddVisitanteComponent implements OnInit {
   };
 
   constructor(private visitanteService : VisitanteService, private departamentoService: DepartamentoService) {
-      this.departamentoService.listarDepartamento().subscribe(
+      
+    this.departamentoService.listarDepartamento().subscribe(
         (x) => this.departamentos = x
-      )
+    )
+    
    }
 
   registraVisita(){

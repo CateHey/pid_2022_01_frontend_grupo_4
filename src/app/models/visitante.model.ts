@@ -1,7 +1,6 @@
 import { Departamento } from "./departamento.model";
 
 export class Visitante {
-
     nom_vis?:string;
     ape_vis?:string;
     fechanac_vis?: Date;
@@ -9,5 +8,4 @@ export class Visitante {
     correo_vis?: string;
     tel_vis?: string;
     cod_dep?:Departamento;
-
 }
