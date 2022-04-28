@@ -58,7 +58,10 @@ mascota: Mascota={
 
 
 
-   registraMascota(){
+  registraMascota(){
+    if (!this.validar()) {
+      return;
+    }
     console.log(this.mascota);
     this.mascotaService.registrar(this.mascota).subscribe(
       response => {
@@ -104,5 +107,32 @@ mascota: Mascota={
       },
     );
   }
-}
+
+
   
+  validar(): boolean {
+    let retorno: boolean = true;
+
+    if (this.mascota.nom_mas === undefined || this.mascota.nom_mas == null || this.mascota.nom_mas == '') {
+      alert("Es requerido ingresar el nombre de la mascota");
+      retorno = false;
+    }
+
+    if (this.mascota.edad_mas === undefined || this.mascota.edad_mas == null || this.mascota.edad_mas == 0) {
+      alert("Es requerido ingresar la edad de la mascota y debe ser mayor a 0");
+      retorno = false;
+    }
+
+    if (this.mascota.tipo_mas === undefined || this.mascota.tipo_mas == null || this.mascota.tipo_mas =='') {
+      alert("Es requerido ingresar el tipo de mascota");
+      retorno = false;
+    }
+
+    if (this.mascota.propietario?.cod_prop === undefined || this.mascota.propietario.cod_prop == null || this.mascota.propietario.cod_prop == -1) {
+      alert("Es requerido elegir propietario");
+      retorno = false;
+    }
+
+    return retorno;
+  }
+}
