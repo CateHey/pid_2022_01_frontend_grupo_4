@@ -29,7 +29,7 @@
                           
                 <div class="col-lg-6">
                     <label for="email">Email</label>
-                    <input type="text" class="form-control" name="email" id="email" maxlength="20" [(ngModel)] ="propietario.email_prop" />
+                    <input type="text" class="form-control" name="email" id="email" maxlength="30" [(ngModel)] ="propietario.email_prop" />
                 </div>                         
         </div>
   
@@ -42,7 +42,7 @@
             <div class="col-lg-6">
                 <label for="departamento">Departamento</label>
                 <select  id="departamento" name="edificios" class="form-control"[(ngModel)] = "propietario.departamento!.cod_dep">
-                    <option value="-1"> [Seleccione] </option>   
+                    <option value="0"> [Seleccione] </option>   
                     <option *ngFor="let aux of departamentos" value="{{aux.cod_dep}}">
                         {{aux.cod_dep}}, {{aux.num_dep}}
                     </option>   

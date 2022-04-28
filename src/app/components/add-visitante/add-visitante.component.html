@@ -28,7 +28,7 @@
 
         <div class="col-lg-3" style="margin-top: 2%">
             <label for="dni_vis">DNI</label>
-            <input type="text"  class="form-control" id="dni_vis"  name="dni_vis" [(ngModel)] = "visitante.dni_vis"/>
+            <input type="text"  class="form-control" id="dni_vis"  name="dni_vis" maxlength="8" [(ngModel)] = "visitante.dni_vis"/>
         </div>
 
         <div class="col-lg-3" style="margin-top: 2%">
@@ -38,7 +38,7 @@
 
         <div class="col-lg-3" style="margin-top: 2%">
             <label for="tel_vis">Telefono</label>
-            <input type="text"  class="form-control" id="tel_vis"  name="tel_vis" [(ngModel)] = "visitante.tel_vis"/>
+            <input type="text"  class="form-control" id="tel_vis"  name="tel_vis" maxlength="9" [(ngModel)] = "visitante.tel_vis"/>
         </div>
             
         </div>
