@@ -3,6 +3,7 @@ import { Departamento } from 'src/app/models/departamento.model';
 import { Edificio } from 'src/app/models/edificio.model';
 import { DepartamentoService } from 'src/app/services/departamento.service';
 import { EdificioService } from 'src/app/services/edificio.service';
+import { Usuario } from '../../models/usuario.model';
 
 @Component({
   selector: 'app-add-departamento',
@@ -11,7 +12,7 @@ import { EdificioService } from 'src/app/services/edificio.service';
 })
 export class AddDepartamentoComponent implements OnInit {
 
-
+  usuario: Usuario = new Usuario();
   departamentos: Departamento[]=[];
 
   edificios: Edificio[]=[];
@@ -43,6 +44,10 @@ export class AddDepartamentoComponent implements OnInit {
    }
    
   ngOnInit(): void {
+    const usuarioActual = sessionStorage.getItem("usuarioActual");
+    if (usuarioActual !== undefined && usuarioActual != null) {
+      this.usuario = JSON.parse(usuarioActual);
+    }
   }
 
   registraDepartamento(){
