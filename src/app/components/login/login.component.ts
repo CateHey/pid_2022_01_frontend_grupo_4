@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
       response => {
         console.log(response);
         if (response.mensaje == '') {
+          sessionStorage.setItem('usuarioActual', JSON.stringify(response.usuario));
           this.router.navigate(['spring']);
         } else {
           alert(response.mensaje);

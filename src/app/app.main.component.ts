@@ -13,6 +13,7 @@ export class AppMainComponent implements OnInit {
   }
 
   logOut() {
+    sessionStorage.removeItem("usuarioActual");
     this.router.navigate([""]);
   }
 
