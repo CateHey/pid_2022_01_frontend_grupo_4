@@ -30,19 +30,64 @@ export class AddVisitanteComponent implements OnInit {
     
    }
 
-  registraVisita(){
-      this.visitanteService.insertaVisitante(this.visitante).subscribe(
-        response => {
-          console.log(response.mensaje);
-            alert(response.mensaje);
-        },
-        error => {
-            console.log(error);
-        }
-      );
-  }
+  
 
   ngOnInit(): void {
   }
 
+  registraVisita(){
+    if (!this.validar()) {
+      return;
+    }
+    this.visitanteService.insertaVisitante(this.visitante).subscribe(
+      response => {
+        console.log(response.mensaje);
+          alert(response.mensaje);
+      },
+      error => {
+          console.log(error);
+      }
+    );
+}
+
+  validar(): boolean {
+    let retorno: boolean = true;
+
+    if (this.visitante.nom_vis === undefined || this.visitante.nom_vis == null || this.visitante.nom_vis == '') {
+      alert("Es requerido ingresar el nombre del visitante");
+      retorno = false;
+    }
+
+    if (this.visitante.ape_vis === undefined || this.visitante.ape_vis == null || this.visitante.ape_vis == '') {
+      alert("Es requerido ingresar el apellido del visitante");
+      retorno = false;
+    }
+
+    if (this.visitante.dni_vis === undefined || this.visitante.dni_vis == null || this.visitante.dni_vis =='') {
+      alert("Es requerido ingresar el numero de DNI");
+      retorno = false;
+    }
+
+    if (this.visitante.cod_dep?.cod_dep === undefined || this.visitante.cod_dep.cod_dep == null || this.visitante.cod_dep.cod_dep == -1) {
+      alert("Es requerido elegir el departamento");
+      retorno = false;
+    }
+
+    if (this.visitante.correo_vis === undefined || this.visitante.correo_vis == null || this.visitante.correo_vis =='') {
+      alert("Es requerido ingresar el correo electrónico");
+      retorno = false;
+    }
+
+    if (this.visitante.tel_vis === undefined || this.visitante.tel_vis == null || this.visitante.tel_vis =='') {
+      alert("Es requerido ingresar el telefono");
+      retorno = false;
+    }
+
+    if (this.visitante.fech_vis === undefined || this.visitante.fech_vis == null || this.visitante.fech_vis == '') {
+      alert("Es requerido ingresar la fecha");
+      retorno = false;
+    }
+
+    return retorno;
+  }
 }
