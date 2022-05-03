@@ -52,6 +52,9 @@ export class AddPropietarioComponent implements OnInit {
 
   
   registraPropietario(){
+    if (!this.validar()){
+      return;
+    }
     console.log(this.propietario);
     this.propietarioService.registra(this.propietario).subscribe(
       response => {

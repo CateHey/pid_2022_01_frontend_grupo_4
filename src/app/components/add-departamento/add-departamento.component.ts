@@ -51,6 +51,9 @@ export class AddDepartamentoComponent implements OnInit {
   }
 
   registraDepartamento(){
+    if (!this.validar()){
+      return;
+    }
     console.log(this.departamento);
     this.departamentoService.registra(this.departamento).subscribe(
       response => {
@@ -79,6 +82,42 @@ export class AddDepartamentoComponent implements OnInit {
           console.log(error);
       },
     );
+  }
+
+  validar(): boolean {
+    let retorno: boolean = true;
+
+    if (this.departamento.num_dep === undefined || this.departamento.num_dep == null || this.departamento.num_dep == '') {
+      alert("Es requerido ingresar el numero del departamento");
+      retorno = false;
+    }
+
+    if (this.departamento.metros_dep === undefined || this.departamento.metros_dep == null || this.departamento.metros_dep == 0) {
+      alert("Es requerido ingresar el tamaño del departamento");
+      retorno = false;
+    }
+
+    if (this.departamento.tel_dep === undefined || this.departamento.tel_dep == null || this.departamento.tel_dep == '') {
+      alert("Es requerido ingresar el teléfono");
+      retorno = false;
+    }
+
+    if (this.departamento.cod_dep === undefined || this.departamento.cod_dep == null || this.departamento.cod_dep == -1) {
+      alert("Es requerido elegir propietario");
+      retorno = false;
+    }
+
+    if (this.departamento.pre_dep === undefined || this.departamento.pre_dep == null || this.departamento.pre_dep == 0) {
+      alert("Es requerido ingresar el precio del departamento");
+      retorno = false;
+    }
+
+    if(this.departamento.edificio?.cod_edi === undefined || this.departamento.edificio?.cod_edi == null || this.departamento.edificio?.cod_edi == 0) {
+      alert("Es requerido ingresar el departamento");
+      retorno = false;
+    }
+    
+    return retorno;
   }
 
 }
