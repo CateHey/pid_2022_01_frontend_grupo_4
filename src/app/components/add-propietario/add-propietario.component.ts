@@ -52,6 +52,9 @@ export class AddPropietarioComponent implements OnInit {
 
   
   registraPropietario(){
+    if (!this.validar()){
+      return;
+    }
     console.log(this.propietario);
     this.propietarioService.registra(this.propietario).subscribe(
       response => {
@@ -86,6 +89,41 @@ export class AddPropietarioComponent implements OnInit {
           console.log(error);
       },
     );
+  }
+
+  validar(): boolean {
+    let retorno: boolean = true;
+
+    if (this.propietario.nom_prop === undefined || this.propietario.nom_prop == null || this.propietario.nom_prop == '') {
+      alert("Es requerido ingresar el nombre del propietario");
+      retorno = false;
+    }
+
+    if (this.propietario.ape_prop === undefined || this.propietario.ape_prop == null || this.propietario.ape_prop == '') {
+      alert("Es requerido ingresar el apellido del propietario");
+      retorno = false;
+    }
+
+    if (this.propietario.dni_prop === undefined || this.propietario.dni_prop == null || this.propietario.dni_prop =='') {
+      alert("Es requerido ingresar el numero de DNI");
+      retorno = false;
+    }
+
+    if (this.propietario.tel_prop === undefined || this.propietario.tel_prop == null || this.propietario.tel_prop == '') {
+      alert("Es requerido ingresar el teléfono");
+      retorno = false;
+    }
+
+    if (this.propietario.email_prop === undefined || this.propietario.email_prop == null || this.propietario.email_prop =='') {
+      alert("Es requerido ingresar el correo electrónico");
+      retorno = false;
+    }
+
+    if (this.propietario.departamento?.cod_dep === undefined || this.propietario.departamento == null || this.propietario.departamento == '') {
+      alert("Es requerido ingresar el departamento");
+    }
+
+    return retorno;
   }
 
 }
