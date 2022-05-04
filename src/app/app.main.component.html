@@ -1,15 +1,17 @@
 <div>
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <nav class="navbar navbar-expand navbar-dark bg-primary" style="margin-bottom: -15px;">
         <a class="navbar-brand" href="#">Cibertec</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-              Departamento
-            </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-expanded="false">
+                        Departamento
+                    </a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a routerLink="registraDepartamento" class="dropdown-item">Crear Departamento</a>
@@ -19,38 +21,41 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-              Propietario
-            </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-expanded="false">
+                        Propietario
+                    </a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a routerLink="registraPropietario" class="dropdown-item">Crear Propietario</a>
-                       <!-- <a routerLink="consultaPropietario" class="dropdown-item">Consulta Propietario</a>
+                        <!-- <a routerLink="consultaPropietario" class="dropdown-item">Consulta Propietario</a>
                         <a routerLink="crudPropietario" class="dropdown-item">Crud Propietario</a>-->
                     </div>
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-            Mascota
-            </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-expanded="false">
+                        Mascota
+                    </a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a routerLink="registraMascota" class="dropdown-item">Crear Mascota</a>
-                       <!-- <a routerLink="consultaProducto" class="dropdown-item">Consulta producto</a>
+                        <!-- <a routerLink="consultaProducto" class="dropdown-item">Consulta producto</a>
                         <a routerLink="crudProducto" class="dropdown-item">Crud producto</a>-->
                     </div>
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-            Visitante
-            </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-expanded="false">
+                        Visitante
+                    </a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a routerLink="registraVisitante" class="dropdown-item">Crear Visitante</a>
 
-                    <!--<a routerLink="consultaVisitante" class="dropdown-item">Consulta Visitante</a>-->
+                        <!--<a routerLink="consultaVisitante" class="dropdown-item">Consulta Visitante</a>-->
 
                     </div>
                 </li>
@@ -62,8 +67,18 @@
             <i style="font-size: 25px" class="fa fa-fw fa-sign-out"></i>
         </a>
     </nav>
-
-    <div class="container mt-3">
-        <router-outlet></router-outlet>
+    <div class="Background_Image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.732),rgba(0,0,0,.683)),url('../assets/departamento.jpg');" >
+    <div id="body1" class="container mt-3" style="background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color:white;
+    margin-top: 30px;">
+        
+            <router-outlet></router-outlet>
+        
+    </div>
     </div>
 </div>

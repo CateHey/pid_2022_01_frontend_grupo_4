@@ -1,4 +1,5 @@
 import { Edificio } from "./edificio.model";
+import { Usuario } from "./usuario.model";
 
 export class Departamento {
     cod_dep?:number;
@@ -8,4 +9,5 @@ export class Departamento {
     edificio?:Edificio;
     pre_dep?:number;
     fec_reg_dep?:Date;
+    usuario ?: Usuario;
 }

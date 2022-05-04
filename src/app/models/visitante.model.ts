@@ -1,4 +1,5 @@
 import { Departamento } from "./departamento.model";
+import { Usuario } from "./usuario.model";
 
 export class Visitante {
     cod_vis?:number;
@@ -10,4 +11,5 @@ export class Visitante {
     correo_vis?: string;
     tel_vis?: string;
     cod_dep?:Departamento;
+    usuario ?: Usuario;
 }

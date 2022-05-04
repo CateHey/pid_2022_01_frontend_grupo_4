@@ -1,4 +1,5 @@
 import { Departamento } from "./departamento.model";
+import { Usuario } from "./usuario.model";
 
 export class Propietario {
 
@@ -10,5 +11,6 @@ export class Propietario {
     email_prop?:string;
     fech_reg_prop?:Date;
     departamento?:Departamento;
+    usuario ?: Usuario;
 
 }

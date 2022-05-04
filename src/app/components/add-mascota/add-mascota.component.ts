@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Mascota } from 'src/app/models/mascota.model';
 import { Propietario } from 'src/app/models/propietario.model';
+import { Usuario } from 'src/app/models/usuario.model';
 import { MascotaService } from 'src/app/services/mascota.service';
 import { PropietarioService } from 'src/app/services/propietario.service';
 
@@ -10,6 +11,8 @@ import { PropietarioService } from 'src/app/services/propietario.service';
   styleUrls: ['./add-mascota.component.css']
 })
 export class AddMascotaComponent implements OnInit {
+
+usuario: Usuario = new Usuario();
 
 mascotas:Mascota[]=[];
 propietarios:Propietario[]=[];
@@ -40,7 +43,17 @@ mascota: Mascota={
     },
     fech_reg_prop: new Date()
   },
-  fec_reg_mas: new Date()	
+  fec_reg_mas: new Date(),
+  usuario:{
+    cod_usu: 0,
+    nom_usu: "",
+    ape_usu: "",
+    dni_usu: "",
+    tel_usu: "",
+    email_usu: "",
+    pass_usu: "",
+    fech_reg_usu: new Date(),
+  }	
 };
 
   constructor(private mascotaService:MascotaService, private propieatorioService:PropietarioService) {
@@ -52,7 +65,12 @@ mascota: Mascota={
     );
    }
 
-   ngOnInit(): void {
+  ngOnInit(): void {
+    const usuarioActual = sessionStorage.getItem("usuarioActual");
+    if (usuarioActual !== undefined && usuarioActual != null) {
+      this.usuario = JSON.parse(usuarioActual);
+    }
+    console.log(this.usuario)
   }
 
 
@@ -63,6 +81,7 @@ mascota: Mascota={
       return;
     }
     console.log(this.mascota);
+    this.mascota.usuario=this.usuario    
     this.mascotaService.registrar(this.mascota).subscribe(
       response => {
         console.log(response.mensaje);
@@ -98,7 +117,17 @@ mascota: Mascota={
             },
             fech_reg_prop: new Date()
           },
-          fec_reg_mas: new Date()	
+          fec_reg_mas: new Date(),
+          usuario:{
+            cod_usu: 0,
+            nom_usu: "",
+            ape_usu: "",
+            dni_usu: "",
+            tel_usu: "",
+            email_usu: "",
+            pass_usu: "",
+            fech_reg_usu: new Date()
+          }	
         };
 
       },

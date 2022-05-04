@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Departamento } from 'src/app/models/departamento.model';
 import { Propietario } from 'src/app/models/propietario.model';
+import { Usuario } from 'src/app/models/usuario.model';
 import { DepartamentoService } from 'src/app/services/departamento.service';
 import { PropietarioService } from 'src/app/services/propietario.service';
 
@@ -11,6 +12,7 @@ import { PropietarioService } from 'src/app/services/propietario.service';
 })
 export class AddPropietarioComponent implements OnInit {
 
+  usuario: Usuario = new Usuario();
   propietarios:Propietario[] = [];
 
   propietario: Propietario = {
@@ -31,7 +33,17 @@ export class AddPropietarioComponent implements OnInit {
       pre_dep: 0,
       fec_reg_dep: new Date(),   
     },   
-    fech_reg_prop: new Date()
+    fech_reg_prop: new Date(),
+    usuario:{
+      cod_usu: 0,
+      nom_usu: "",
+      ape_usu: "",
+      dni_usu: "",
+      tel_usu: "",
+      email_usu: "",
+      pass_usu: "",
+      fech_reg_usu: new Date(),
+    }
   };
 
   departamentos: Departamento[] = [];
@@ -48,6 +60,11 @@ export class AddPropietarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const usuarioActual = sessionStorage.getItem("usuarioActual");
+    if (usuarioActual !== undefined && usuarioActual != null) {
+      this.usuario = JSON.parse(usuarioActual);
+    }
+    console.log(this.usuario)
   }
 
   
@@ -55,6 +72,7 @@ export class AddPropietarioComponent implements OnInit {
     if (!this.validar()){
       return;
     }
+    this.propietario.usuario=this.usuario    
     console.log(this.propietario);
     this.propietarioService.registra(this.propietario).subscribe(
       response => {
@@ -82,7 +100,17 @@ export class AddPropietarioComponent implements OnInit {
               pre_dep: 0,
               fec_reg_dep: new Date()
             },
-            fech_reg_prop: new Date()
+            fech_reg_prop: new Date(),
+            usuario:{
+              cod_usu: 0,
+              nom_usu: "",
+              ape_usu: "",
+              dni_usu: "",
+              tel_usu: "",
+              email_usu: "",
+              pass_usu: "",
+              fech_reg_usu: new Date()
+            }	
       };
     },
       error => {
@@ -94,23 +122,26 @@ export class AddPropietarioComponent implements OnInit {
   validar(): boolean {
     let retorno: boolean = true;
 
-    if (this.propietario.nom_prop === undefined || this.propietario.nom_prop == null || this.propietario.nom_prop == '') {
-      alert("Es requerido ingresar el nombre del propietario");
+    if (this.propietario.nom_prop === undefined || this.propietario.nom_prop == null || this.propietario.nom_prop == ''
+    || this.propietario.nom_prop.length >=3) {
+      alert("El nombre del propietario no debe ser vacio y debe tener al menos 3 carácteres");
       retorno = false;
     }
 
-    if (this.propietario.ape_prop === undefined || this.propietario.ape_prop == null || this.propietario.ape_prop == '') {
-      alert("Es requerido ingresar el apellido del propietario");
+    if (this.propietario.ape_prop === undefined || this.propietario.ape_prop == null || this.propietario.ape_prop == ''
+    || this.propietario.ape_prop.length <3) {
+      alert("El apellido del propietario no debe ser vacio y debe tener al menos 3 carácteres");
       retorno = false;
     }
 
-    if (this.propietario.dni_prop === undefined || this.propietario.dni_prop == null || this.propietario.dni_prop =='') {
-      alert("Es requerido ingresar el numero de DNI");
+    if (this.propietario.dni_prop == '' || this.propietario.dni_prop == null || this.propietario.dni_prop.length <8) {
+      alert("El DNI no debe estar duplicado y debe ser de 8 dígitos");
       retorno = false;
     }
 
-    if (this.propietario.tel_prop === undefined || this.propietario.tel_prop == null || this.propietario.tel_prop == '') {
-      alert("Es requerido ingresar el teléfono");
+    if (this.propietario.tel_prop === undefined || this.propietario.tel_prop == null || this.propietario.tel_prop == ''
+    || this.propietario.tel_prop .length < 9) {
+      alert("El telefono debe tener 9 dígitos");
       retorno = false;
     }
 

@@ -13,10 +13,10 @@ import { Usuario } from '../../models/usuario.model';
 export class AddDepartamentoComponent implements OnInit {
 
   usuario: Usuario = new Usuario();
+
   departamentos: Departamento[]=[];
 
-  edificios: Edificio[]=[];
-  
+  edificios: Edificio[]=[];  
 
   departamento: Departamento={
     cod_dep:0,
@@ -28,7 +28,17 @@ export class AddDepartamentoComponent implements OnInit {
       nom_edi:"",
     },
     pre_dep:0,
-    fec_reg_dep: new Date()
+    fec_reg_dep: new Date(),
+    usuario:{
+      cod_usu: 0,
+      nom_usu: "",
+      ape_usu: "",
+      dni_usu: "",
+      tel_usu: "",
+      email_usu: "",
+      pass_usu: "",
+      fech_reg_usu: new Date(),
+    }
   };
 
 
@@ -48,6 +58,7 @@ export class AddDepartamentoComponent implements OnInit {
     if (usuarioActual !== undefined && usuarioActual != null) {
       this.usuario = JSON.parse(usuarioActual);
     }
+    console.log(this.usuario)
   }
 
   registraDepartamento(){
@@ -55,6 +66,7 @@ export class AddDepartamentoComponent implements OnInit {
       return;
     }
     console.log(this.departamento);
+    this.departamento.usuario=this.usuario
     this.departamentoService.registra(this.departamento).subscribe(
       response => {
         console.log(response.mensaje);
@@ -74,7 +86,17 @@ export class AddDepartamentoComponent implements OnInit {
             nom_edi:"",
           },
           pre_dep:0,
-          fec_reg_dep: new Date()
+          fec_reg_dep: new Date(),
+          usuario:{
+            cod_usu: 0,
+            nom_usu: "",
+            ape_usu: "",
+            dni_usu: "",
+            tel_usu: "",
+            email_usu: "",
+            pass_usu: "",
+            fech_reg_usu: new Date(),
+          }
         };
 
       },
@@ -87,33 +109,30 @@ export class AddDepartamentoComponent implements OnInit {
   validar(): boolean {
     let retorno: boolean = true;
 
-    if (this.departamento.num_dep === undefined || this.departamento.num_dep == null || this.departamento.num_dep == '') {
-      alert("Es requerido ingresar el numero del departamento");
+    if (this.departamento.num_dep === undefined || this.departamento.num_dep == null || this.departamento.num_dep == ''
+    || this.departamento.num_dep.length < 1) {
+      alert("El número de departamento debe tener al menos 1 dígito");
       retorno = false;
     }
 
-    if (this.departamento.metros_dep === undefined || this.departamento.metros_dep == null || this.departamento.metros_dep == 0) {
-      alert("Es requerido ingresar el tamaño del departamento");
+    if (this.departamento.metros_dep === undefined || this.departamento.metros_dep == null || this.departamento.metros_dep < 10) {
+      alert("El mínimo tamaño de departamento es de 10 m2");
       retorno = false;
     }
 
-    if (this.departamento.tel_dep === undefined || this.departamento.tel_dep == null || this.departamento.tel_dep == '') {
-      alert("Es requerido ingresar el teléfono");
+    if (this.departamento.tel_dep === undefined || this.departamento.tel_dep == null || this.departamento.tel_dep == ''
+    || this.departamento.tel_dep.length < 9) {
+      alert("El telefono debe tener 9 dígitos");
       retorno = false;
     }
 
-    if (this.departamento.cod_dep === undefined || this.departamento.cod_dep == null || this.departamento.cod_dep == -1) {
-      alert("Es requerido elegir propietario");
-      retorno = false;
-    }
-
-    if (this.departamento.pre_dep === undefined || this.departamento.pre_dep == null || this.departamento.pre_dep == 0) {
-      alert("Es requerido ingresar el precio del departamento");
+    if (this.departamento.pre_dep === undefined || this.departamento.pre_dep == null || this.departamento.pre_dep < 2000) {
+      alert("El mínimo precio del departamento es de 2000 soles");
       retorno = false;
     }
 
     if(this.departamento.edificio?.cod_edi === undefined || this.departamento.edificio?.cod_edi == null || this.departamento.edificio?.cod_edi == 0) {
-      alert("Es requerido ingresar el departamento");
+      alert("Debe seleccionar un edificio");
       retorno = false;
     }
     

@@ -3,8 +3,8 @@
     <form class="content" (ngSubmit)="registraVisita()" >
     <div class="submit-form" >
   
-        <div class="row" style="margin-top: 6%">
-            <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-12" style="margin-bottom: -2%;">
                 <h4>Registro de Visitantes: </h4>
             </div>
         </div>
@@ -20,36 +20,40 @@
             <input type="text"  class="form-control" id="apellido"  name="apellido" maxlength="40" [(ngModel)] = "visitante.ape_vis"/>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-3">
             <label for="fechanac_vis">Fecha Nacimiento</label>
             <input type="date" class="form-control" name="fechanac_vis" id="fechanac_vis"  [(ngModel)] = "visitante.fechanac_vis" /> 
         </div>
         
 
-        <div class="col-lg-3" style="margin-top: 2%">
+        <div class="col-lg-3">
             <label for="dni_vis">DNI</label>
             <input type="text"  class="form-control" id="dni_vis"  name="dni_vis" maxlength="8" [(ngModel)] = "visitante.dni_vis"/>
         </div>
 
-        <div class="col-lg-3" style="margin-top: 2%">
+        <div class="col-lg-4" style="margin-top: 2%">
             <label for="correo_vis">Correo electronico</label>
             <input type="text"  class="form-control" id="correo_vis"  name="correo_vis" [(ngModel)] = "visitante.correo_vis"/>
         </div>
 
-        <div class="col-lg-3" style="margin-top: 2%">
+        <div class="col-lg-4" style="margin-top: 2%">
             <label for="tel_vis">Telefono</label>
             <input type="text"  class="form-control" id="tel_vis"  name="tel_vis" maxlength="9" [(ngModel)] = "visitante.tel_vis"/>
         </div>
-            
-        </div>
-
-        <label for="cod_dep"  style="margin-top: 2%">Departamento</label>
+        
+        <div class="col-lg-4" style="margin-top: 2%">
+        <label for="cod_dep"  >Departamento</label>
             <select  id="cod_dep" name="cod_dep" class="form-control"  [(ngModel)] = "visitante.cod_dep!.cod_dep">
                 <option value="-1"> [Seleccione departamento] </option>   
                 <option *ngFor="let aux of departamentos" value="{{aux.cod_dep}}">
                     {{aux.num_dep}}
                 </option>   
             </select>
+        </div>
+            
+        </div>
+
+        
         
   
         <div class="row" style="margin-top: 4%"> 
@@ -62,29 +66,27 @@
       <div class="row" *ngIf="visitantes.length != 0" style="margin-top: 3%">
         <div class="col-md-12">
           <div class="content">               
-            <table id="id_table" class="table table-striped table-bordered"><thead>
-                <tr>      
-                  <th style="width: 15%"># de Visitante</th>
-                  <th style="width: 30%">Fecha</th>
+            <table id="id_table" class="table table-striped table-bordered table-responsive"><thead>
+                <tr style="color: white;">      
+                  <th style="width: 30%">Fecha Visita</th>
                   <th style="width: 15%">Nombre</th>
                   <th style="width: 10%">Apellido</th>
-                  <th style="width: 15%">Fecha Nacimiento</th>
                   <th style="width: 30%">Dni</th>
                   <th style="width: 30%">Correo</th>
                   <th style="width: 30%">Telefono</th>
                   <th style="width: 30%">Departamento</th>
+                  <th style="width: 30%">Usuario</th>
                 </tr>
               </thead> <tbody>
-                <tr *ngFor="let aux of visitantes">      
-                  <td>{{ aux.cod_vis }}</td>
+                <tr *ngFor="let aux of visitantes" style="color: white;">    
                   <td>{{ aux.fech_vis }}</td>
                   <td>{{ aux.nom_vis }}</td>
                   <td>{{ aux.ape_vis }}</td>
-                  <td>{{ aux.fechanac_vis }}</td>
                   <td>{{ aux.dni_vis }}</td>
                   <td>{{ aux.correo_vis }}</td>
                   <td>{{ aux.tel_vis }}</td>
                   <td>{{ aux.cod_dep!.cod_dep }}</td>
+                  <td>{{ aux.usuario!.email_usu }}</td>
                 </tr></tbody></table>
           </div>
         </div>
