@@ -123,18 +123,18 @@ export class AddPropietarioComponent implements OnInit {
     let retorno: boolean = true;
 
     if (this.propietario.nom_prop === undefined || this.propietario.nom_prop == null || this.propietario.nom_prop == ''
-    || this.propietario.nom_prop.length >=3) {
+    || this.propietario.nom_prop.length <= 3) {
       alert("El nombre del propietario no debe ser vacio y debe tener al menos 3 carácteres");
       retorno = false;
     }
 
     if (this.propietario.ape_prop === undefined || this.propietario.ape_prop == null || this.propietario.ape_prop == ''
-    || this.propietario.ape_prop.length <3) {
+    || this.propietario.ape_prop.length <= 3) {
       alert("El apellido del propietario no debe ser vacio y debe tener al menos 3 carácteres");
       retorno = false;
     }
 
-    if (this.propietario.dni_prop == '' || this.propietario.dni_prop == null || this.propietario.dni_prop.length <8) {
+    if (this.propietario.dni_prop == '' || this.propietario.dni_prop == null || this.propietario.dni_prop.length < 8) {
       alert("El DNI no debe estar duplicado y debe ser de 8 dígitos");
       retorno = false;
     }
