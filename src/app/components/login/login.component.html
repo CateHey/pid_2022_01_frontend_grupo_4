@@ -6,15 +6,16 @@
                 <form class="login-form">
                     <div class="form-group">
                         <label for="exampleInputEmail1" class="text-uppercase">Usuario</label>
-                        <input type="text" autocomplete="off" class="form-control" name="emailUsu" [(ngModel)]="usuario.emailUsu" placeholder="">
+                        <input type="text" autocomplete="off" class="form-control" name="email_usu" [(ngModel)]="usuario.email_usu" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1" class="text-uppercase">Contraseña</label>
-                        <input type="password" autocomplete="off" class="form-control" name="passUsu" [(ngModel)]="usuario.passUsu" placeholder="">
+                        <input type="password" autocomplete="off" class="form-control" name="pass_usu" [(ngModel)]="usuario.pass_usu" placeholder="">
                     </div>
 
                     <div class="form-check">
-                        <span style="width:48%; text-align:left;  display: inline-block;"><a class="small-text" href="#">¿Nuevo Usuario?</a></span>
+                        <span style="width:48%; text-align:left;  display: inline-block;"><a class="small-text" href="#"></a></span>
+                        <!-- ¿Nuevo Usuario? -->
                         <button type="submit" (click)="login()" class="btn btn-login float-right">Ingresar</button>
                     </div>
 

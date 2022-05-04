@@ -1,1 +1,76 @@
-<p>add-mascota works!</p>
+<div>
+
+    <form class="content"  (ngSubmit)="registraMascota()" >
+    <div class="submit-form" >
+  
+         <div class="row">
+            <div class="col-lg-12" style="margin-top: 1.5%">
+                <h4>Registro de Mascotas </h4>
+            </div>
+        </div>
+  
+        <div class="row" style="margin-top: 3%">
+                <div class="col-lg-6">
+                    <label for="razonsocial">Nombre de Mascota</label>
+                    <input type="text" class="form-control" name="nom_mas" placeholder="Ingrese el nombre de la mascota" id="nom_mas" maxlength="30" [(ngModel)] ="mascota.nom_mas" />
+                </div>
+                          
+                <div class="col-lg-6">
+                    <label for="telefono">Edad Mascota</label>
+                    <input type="text" class="form-control" name="edad_mas" id="edad_mas" placeholder="Ingrese edad de mascota" maxlength="2" [(ngModel)] ="mascota.edad_mas"   />
+                </div>                         
+        </div>
+  
+        <div class="row" style="margin-top: 3%">
+            <div class="col-lg-6">
+                <label for="celular">Tipo</label>
+                <input type="text" class="form-control" name="tipo_mas" id="tipo_mas" placeholder="Grande o Pequeña" maxlength="10" [(ngModel)] ="mascota.tipo_mas"   />
+            </div>
+
+            <div class="col-lg-6">
+                <label for="edificios">Propietario</label>
+                <select  id="edificios" name="propietarios" class="form-control"  [(ngModel)] = "mascota.propietario!.cod_prop">
+                    <option value="0"> [Seleccione] </option>   
+                    <option *ngFor="let aux of propietarios" value="{{aux.cod_prop}}">
+                        {{aux.nom_prop}} {{aux.ape_prop}}
+                </select>
+            </div>
+        </div>
+  
+        <div class="row" style="margin-top: 3%"> 
+                <div class="col-lg-12">
+                    <button class="btn btn-success"  >Enviar</button>
+                </div>
+        </div>
+  
+    
+        <div class="row" *ngIf="mascotas.length != 0" style="margin-top: 3%">
+            <div class="col-md-12">
+              <div class="content">               
+                <table id="id_table" class="table table-striped table-bordered"><thead>
+                    <tr style="color: white;">      
+                      <th style="width: 15%"># de Mascota</th>
+                      <th style="width: 15%">Nombre</th>
+                      <th style="width: 15%">Edad</th>
+                      <th style="width: 10%">Tipo de Mascota</th>
+                      <th style="width: 15%">Propietario</th>
+                      <th style="width: 30%">Fecha de Registro</th>
+                      <th style="width: 30%">Usuario</th>
+                    </tr>
+                  </thead> <tbody>
+                    <tr *ngFor="let aux of mascotas" style="color: white;">      
+                      <td>{{ aux.cod_mas }}</td>
+                      <td>{{ aux.nom_mas }}</td>
+                      <td>{{ aux.edad_mas }}</td>
+                      <td>{{ aux.tipo_mas }}</td>
+                      <td>{{ aux.propietario!.nom_prop }}</td>     
+                      <td>{{ aux.fec_reg_mas }}</td>
+                      <td>{{ aux.usuario!.email_usu }}</td>
+                    </tr></tbody></table>
+              </div>
+            </div>
+        </div>
+    
+      </div>
+  
+     </form>

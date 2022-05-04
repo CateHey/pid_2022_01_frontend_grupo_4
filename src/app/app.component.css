@@ -1,3 +1,7 @@
 .box {
     min-height: 100%; 
   }
+
+#body1{
+    background-color: aqua;
+}

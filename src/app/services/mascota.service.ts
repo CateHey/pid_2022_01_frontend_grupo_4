@@ -5,16 +5,20 @@ import { AppSettings } from '../app.settings';
 import { Mascota } from '../models/mascota.model';
 
 
-const baseUrlProveedor = AppSettings.API_ENDPOINT+ '/mascota';
+const baseUrl = AppSettings.API_ENDPOINT+ '/mascota';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProveedorService {
+export class MascotaService {
 
   constructor(private http: HttpClient) { }
       
   registrar(data:Mascota): Observable<any>{
-    return this.http.post(baseUrlProveedor, data);
+    return this.http.post(baseUrl, data);
   }
+  listarMascota(): Observable<Mascota[]> {
+    return this.http.get<Mascota[]>(baseUrl);
+  }
+ 
 }

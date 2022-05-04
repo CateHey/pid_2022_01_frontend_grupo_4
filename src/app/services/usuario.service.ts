@@ -15,7 +15,7 @@ export class UsuarioService {
   constructor(private http:HttpClient) { }
 
   login(usuario : Usuario): Observable<any>{
-    return this.http.post(baseUrlUsuario  + "/validarUsuario", usuario) 
+    return this.http.post(baseUrlUsuario  + "/login", usuario) 
   }
 
 }
