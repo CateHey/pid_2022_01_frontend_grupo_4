@@ -20,7 +20,7 @@ propietarios:Propietario[]=[];
 mascota: Mascota={
   cod_mas: 0,
   nom_mas: "",
-  edad_mas: 0,
+  raza_mas: "",
   tipo_mas: "",
   propietario: {
     cod_prop: 0,
@@ -94,7 +94,7 @@ mascota: Mascota={
         this.mascota ={
           cod_mas: 0,
           nom_mas: "",
-          edad_mas: 0,
+          raza_mas: "",
           tipo_mas: "",
           propietario: {
             cod_prop: 0,
