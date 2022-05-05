@@ -1,0 +1,269 @@
+[33mcommit 6dc93182a1059d8d39d82c9ee50c8800e4f057b6[m[33m ([m[1;36mHEAD -> [m[1;32mortiz[m[33m, [m[1;31morigin/ortiz[m[33m)[m
+Merge: e6fe3aa 455a92b
+Author: davidhom13 <davidhugo.ortiz@gmail.com>
+Date:   Tue May 3 23:09:13 2022 -0500
+
+    Validaciones
+
+[33mcommit e6fe3aabf1792ce1df01a5d357cab40cd93876f2[m
+Author: davidhom13 <davidhugo.ortiz@gmail.com>
+Date:   Tue May 3 23:01:05 2022 -0500
+
+    Validaciones v2
+
+[33mcommit 455a92b37d102811aeee836adfc4ea262965df3e[m
+Author: CateHey <catyvaras19@gmail.com>
+Date:   Tue May 3 21:27:51 2022 -0500
+
+    description
+
+[33mcommit 9a342bcd7ea31aa9fd24480444811b94e0dd8bda[m
+Merge: 718bfbb 00bf6e4
+Author: julianlm <51030254+julianlm@users.noreply.github.com>
+Date:   Tue May 3 00:52:14 2022 -0500
+
+    Merge pull request #15 from CateHey/sprint1-Luna
+    
+    Sprint1 luna
+
+[33mcommit 00bf6e4c0b188284a76693b3f8b90d2a3b66029f[m
+Author: julianlm <julianlunamorey@hotmail.com>
+Date:   Tue May 3 00:50:30 2022 -0500
+
+    Implemented validations to departamento, propietario
+
+[33mcommit 2f8c1f2bce6285a572ef37ee76017fad5d7fc4e8[m
+Author: julianlm <julianlunamorey@hotmail.com>
+Date:   Mon May 2 11:28:33 2022 -0500
+
+    Implemented validations propietario
+
+[33mcommit 718bfbb333005de41fe4e662e9d2cbb0296d8f6c[m
+Merge: ba7477d 5871f7c
+Author: julianlm <51030254+julianlm@users.noreply.github.com>
+Date:   Sun May 1 19:54:26 2022 -0500
+
+    Merge pull request #14 from CateHey/sprint1-Luna
+    
+    implemented validations visitante
+
+[33mcommit 5871f7cc96d86ff30174682f4f5dd9bcd555635c[m
+Author: julianlm <julianlunamorey@hotmail.com>
+Date:   Sun May 1 19:51:09 2022 -0500
+
+    implemented validations visitante
+
+[33mcommit cfb6c11558e320d10ec7007b0809cb9204510e6d[m
+Author: davidhom13 <davidhugo.ortiz@gmail.com>
+Date:   Sat Apr 30 16:27:33 2022 -0500
+
+    Validaciones de registrar Visitante v1
+
+[33mcommit ba7477dc1a190b13835ac6ecadfb9cb8713ee680[m
+Merge: 712e402 fb4f273
+Author: Neil Malca <41088223+NeilMalca@users.noreply.github.com>
+Date:   Fri Apr 29 00:27:53 2022 -0500
+
+    Merge pull request #12 from CateHey/pid-malca
+    
+    Login - Usuario guardado en sesion / Salir - Limpiar Usuario en sesion
+
+[33mcommit fb4f273f0efdf94fd52a77730c0552c956adb280[m
+Author: NeilMalca <neilmalca93@gmail.com>
+Date:   Fri Apr 29 00:26:56 2022 -0500
+
+    Login - Usuario guardado en sesion / Salir - Limpiar Usuario en sesion
+
+[33mcommit 712e4020b330a39448e46e8b40b66f76ee61ed66[m
+Merge: 17386ce d6ed813
+Author: Tomas Vega Hinostroza <90815792+Omegavega1796@users.noreply.github.com>
+Date:   Thu Apr 28 18:46:17 2022 -0500
+
+    Merge pull request #11 from CateHey/sprint1-vega
+    
+    Validaciones Listas: Mascota
+
+[33mcommit d6ed813bfb10afaef37df488d31fca820e9655d8[m
+Author: Omegavega1796 <iker9617@outlook.com>
+Date:   Thu Apr 28 18:45:39 2022 -0500
+
+    Validaciones Listas: Mascota
+
+[33mcommit 17386ce369d0017c90a5c237bd66d25802012ba5[m
+Merge: ae2b297 a1599eb
+Author: Tomas Vega Hinostroza <90815792+Omegavega1796@users.noreply.github.com>
+Date:   Wed Apr 27 19:35:07 2022 -0500
+
+    Merge pull request #10 from CateHey/sprint1-vega
+    
+    Algunas validaciones
+
+[33mcommit a1599ebf4050bf1c9cfe92e622345acd50bdcd5f[m
+Merge: 9330aa2 ae2b297
+Author: Tomas Vega Hinostroza <90815792+Omegavega1796@users.noreply.github.com>
+Date:   Wed Apr 27 19:34:51 2022 -0500
+
+    Merge branch 'master' into sprint1-vega
+
+[33mcommit 9330aa21bd98fdf190702ead023e28e4a864196c[m
+Author: Omegavega1796 <iker9617@outlook.com>
+Date:   Wed Apr 27 19:32:20 2022 -0500
+
+    Algunas validaciones
+
+[33mcommit ae2b2970fb2871b3d7fd877f08603aa2184da556[m
+Merge: 29d7700 fccd0af
+Author: David Ortiz <102269410+davidhom13@users.noreply.github.com>
+Date:   Wed Apr 27 18:32:32 2022 -0500
+
+    Merge pull request #9 from CateHey/ortiz
+    
+    Actualización Pagina Principal
+
+[33mcommit fccd0affa07d8ade39d104109e584f24cdb45b3a[m
+Author: davidhom13 <davidhugo.ortiz@gmail.com>
+Date:   Wed Apr 27 18:31:01 2022 -0500
+
+    Actualizacion Pagina Principal
+
+[33mcommit 29d7700a23f4f7f2f149a871bb8064ef191b6ecb[m
+Merge: 405a95c 9e089e1
+Author: David Ortiz <102269410+davidhom13@users.noreply.github.com>
+Date:   Wed Apr 27 18:09:51 2022 -0500
+
+    Listar Visitante (Completado)
+    
+    Listar Visitante
+
+[33mcommit 9e089e15930e26109db8aa293b18ffbc71aab116[m
+Author: davidhom13 <davidhugo.ortiz@gmail.com>
+Date:   Wed Apr 27 18:08:18 2022 -0500
+
+    Listar Visitante
+
+[33mcommit 405a95c8f5f91201a87e329baa5838d867402742[m
+Merge: aeb4646 25bf910
+Author: David Ortiz <102269410+davidhom13@users.noreply.github.com>
+Date:   Wed Apr 27 00:39:42 2022 -0500
+
+    Registro de Visitantes FRONTEND
+
+[33mcommit 25bf9100d0d1a6276b4ab236793315493443dabb[m
+Author: davidhom13 <davidhugo.ortiz@gmail.com>
+Date:   Wed Apr 27 00:38:47 2022 -0500
+
+    Registro de visita (Funcionando correctamente)
+
+[33mcommit 43070ba4f4b58a1a11155fb9db67343320c3a879[m
+Author: davidhom13 <davidhugo.ortiz@gmail.com>
+Date:   Wed Apr 27 00:34:36 2022 -0500
+
+    Registrar visita
+
+[33mcommit 759a368e16a2d1f922f4f33a820deb1a8122df9a[m
+Author: davidhom13 <davidhugo.ortiz@gmail.com>
+Date:   Wed Apr 27 00:26:49 2022 -0500
+
+    Registrar visita
+
+[33mcommit aeb4646c6fdaed82b3a2ddf8faf89274818b6472[m
+Merge: 9d8578b eefbf96
+Author: Neil Malca <41088223+NeilMalca@users.noreply.github.com>
+Date:   Tue Apr 26 22:26:30 2022 -0500
+
+    Merge pull request #6 from CateHey/pid-malca
+    
+    Login Validacion - Ajustes
+
+[33mcommit eefbf96b8e24b4b96ca0971ac6b50f9ad5cf18c2[m
+Author: NeilMalca <neilmalca93@gmail.com>
+Date:   Tue Apr 26 22:26:04 2022 -0500
+
+    Login Validacion - Ajustes
+
+[33mcommit 9d8578b5f64d9800093cf6cb307d64001cab9df8[m
+Author: NeilMalca <neilmalca93@gmail.com>
+Date:   Tue Apr 26 22:10:33 2022 -0500
+
+    Login Sistema - Validacion
+
+[33mcommit 4a8f6a3e418c2e054bec4d83e1d8e4b965850db6[m
+Merge: ecf0711 0fa2309
+Author: Tomas Vega Hinostroza <90815792+Omegavega1796@users.noreply.github.com>
+Date:   Sun Apr 24 20:45:07 2022 -0500
+
+    Merge pull request #5 from CateHey/sprint1-vega
+    
+    Registra Mascota Completo
+
+[33mcommit 0fa230978f060010302170089eb8efb1df7a58fd[m
+Author: Omegavega1796 <iker9617@outlook.com>
+Date:   Sun Apr 24 20:43:27 2022 -0500
+
+    Registra Mascota Completo
+
+[33mcommit ecf07118ff9f13513ca03bde08e01676b88abc52[m
+Author: CateHey <catyvaras19@gmail.com>
+Date:   Sun Apr 24 18:54:37 2022 -0500
+
+    cambio menor de listado
+
+[33mcommit c0d472a681eea6946830275db256daaaddbc6941[m
+Merge: e81bd34 72d8833
+Author: @RichardAG <84468801+leoleo927@users.noreply.github.com>
+Date:   Sun Apr 24 18:17:46 2022 -0500
+
+    Merge pull request #4 from CateHey/pit-Almendariz
+    
+    test
+
+[33mcommit 72d88331ce2b550a64fc36e95031c59f7bad8a2b[m
+Author: leoleo927 <lenfer927@gmail.com>
+Date:   Sun Apr 24 18:16:35 2022 -0500
+
+    test
+
+[33mcommit e81bd3467ac8806be35374da5df971c398c0fe76[m
+Author: CateHey <catyvaras19@gmail.com>
+Date:   Sat Apr 23 19:48:43 2022 -0500
+
+    departamento listado y registro
+
+[33mcommit ebf6ce688f6e8aab3a5a2b4991ed75efa6a5948a[m
+Author: NeilMalca <neilmalca93@gmail.com>
+Date:   Wed Apr 20 18:59:41 2022 -0500
+
+    Login Sistema - Componentes/Servicios/Modelos
+
+[33mcommit eb2d6070d393b4303cf647fbeff0a48918dac32f[m
+Merge: 57aa861 63ce57f
+Author: CateHey <83050179+CateHey@users.noreply.github.com>
+Date:   Wed Apr 20 18:17:01 2022 -0500
+
+    Merge pull request #3 from CateHey/varas
+    
+    departamento front
+
+[33mcommit 63ce57fbe1d44c53d96ee03c91da78b9474b36fb[m[33m ([m[1;31morigin/varas[m[33m)[m
+Author: CateHey <catyvaras19@gmail.com>
+Date:   Wed Apr 20 18:16:24 2022 -0500
+
+    cambio
+
+[33mcommit 1f856eafa846c8b09f18bf58f22990fdda61f59f[m
+Author: CateHey <catyvaras19@gmail.com>
+Date:   Wed Apr 20 18:13:07 2022 -0500
+
+    departamento front
+
+[33mcommit 57aa8618d57833a100ba8e6aea30f3586c573f6a[m
+Merge: 5975f0c 4772676
+Author: CateHey <83050179+CateHey@users.noreply.github.com>
+Date:   Wed Apr 20 15:41:02 2022 -0500
+
+    Merge pull request #1 from CateHey/sprint1-vega
+    
+    Front end con componentes listos para modificar
+
+[33mcommit 47726767acfcd32fa8e950310398d6a0f903bde3[m[33m ([m[1;31morigin/sprint1-vega[m[33m)[m
+Author: Omegavega1796 <iker9617@
