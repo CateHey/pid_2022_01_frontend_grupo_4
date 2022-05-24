@@ -1,0 +1,59 @@
+<div>
+    <form class="content" (ngSubmit)="registraVisita()">
+        <div class="submit-form">
+
+            <div class="row">
+                <div class="col-lg-12" style="margin-top: 1.5%">
+                    <h4>Registro de Visita</h4>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-4">
+                    <label for="dni">DNI</label>
+                    <input type="text" class="form-control" name="dni" readonly [(ngModel)]="visitareg.visita!.dni_vis" />
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-4">
+                    <label for="visitante">Visitante</label>
+                    <input type="text" class="form-control" name="visitante" readonly [(ngModel)]="visitareg.visita!.nom_vis" />
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-3">
+                    <label for="fecha_ingreso">Hora Ingreso</label>
+                    <input type="time" class="form-control" name="fecha_ingreso" id="fecha_ingreso" [(ngModel)]="auxFechaIng" />
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-3">
+                    <label for="fecha_salida">Hora Salida</label>
+                    <input type="time" class="form-control" name="fecha_salida" readonly id="fecha_salida" [(ngModel)]="visitareg.fech_sal_visreg" />
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-6">
+                    <label for="propietarios">Visita a</label>
+                    <select id="propietarios" name="propietarios" placeholder="Selecione edificio" class="form-control" [(ngModel)]="visitareg.propietario!.cod_prop">
+                        <option value="-1"> [Seleccione] </option>   
+                        <option *ngFor="let aux of propietarios" value="{{aux.cod_prop}}">
+                            {{aux.nom_prop}}
+                        </option>   
+                    </select>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-12">
+                    <button class="btn btn-success">Registrar</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
