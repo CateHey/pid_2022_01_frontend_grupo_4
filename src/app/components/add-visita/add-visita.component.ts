@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { findIndex } from 'rxjs';
 import { Propietario } from 'src/app/models/propietario.model';
 import { Usuario } from 'src/app/models/usuario.model';
+import { Visitante } from 'src/app/models/visitante.model';
 import { PropietarioService } from 'src/app/services/propietario.service';
 import { VisitaReg } from '../../models/visitareg.model';
 import { VisitaRegService } from '../../services/visitareg.service';
@@ -12,9 +14,53 @@ import { VisitaRegService } from '../../services/visitareg.service';
 })
 export class AddVisitaComponent implements OnInit {
 
+  dni_vis: string ="";
   usuario: Usuario = new Usuario();
 
   propietarios: Propietario[] = [];  
+
+  visitante: Visitante =
+  {   cod_vis: 0,
+      fech_vis: "",
+      nom_vis: "",
+      ape_vis: "",
+      fechanac_vis: new Date(),
+      dni_vis: "",
+      correo_vis: "",
+      tel_vis: "",
+      cod_dep: {
+        cod_dep: 0,
+        num_dep: "",
+        metros_dep: 0,
+        tel_dep: "",
+        edificio: {
+          cod_edi: 0,
+          nom_edi: ""
+        },
+        pre_dep: 0,
+        fec_reg_dep: new Date(),
+        usuario: {
+          cod_usu: 0,
+          nom_usu: "",
+          ape_usu: "",
+          dni_usu: "",
+          tel_usu: "",
+          email_usu: "",
+          pass_usu: "",
+          fech_reg_usu: new Date()
+        }
+      },
+      usuario: {
+        cod_usu: 1,
+        nom_usu: "",
+        ape_usu: "",
+        dni_usu: "",
+        tel_usu: "",
+        email_usu: "",
+        pass_usu: "",
+        fech_reg_usu: new Date()
+      }
+    };
 
   visitareg: VisitaReg = {
     cod_visreg: 0,
@@ -22,24 +68,30 @@ export class AddVisitaComponent implements OnInit {
     comentario: "",
     fech_ingr_visreg: new Date(),
     visita: {
-      cod_vis:1,
-      nom_vis:"Milagros Vasquez",
-      dni_vis:"12345678"
+      cod_vis:0,
+      nom_vis:"",
+      dni_vis:""
     },
     propietario: {
-      cod_prop:-1,
+      cod_prop:0,
       nom_prop:""
     }
   };
 
+  visitantes: Visitante[]=[];
+
   fechaHoy: Date = new Date();
   auxFechaIng: string = "";
+
+  visita_nom_vis:string=""
+  visita_ape_vis:string=""
 
   constructor(private visitaRegService:VisitaRegService, 
             private propietarioService:PropietarioService) { 
       this.propietarioService.listarPropietario().subscribe(
         response => this.propietarios = response
       );
+
   }
 
   ngOnInit(): void {
@@ -47,17 +99,33 @@ export class AddVisitaComponent implements OnInit {
     this.visitareg.fech_ingr_visreg = new Date();
   }
 
-  registraVisita() {
-    // if (!this.validar()){
-    //   return;
-    // }
+  VisitanteSeleccionado(){
+    console.log(this.visitantes[0])
+    this.visitante=this.visitantes[0]
+    console.log(this.visitante)
+    this.visitareg.visita!.cod_vis=this.visitante.cod_vis
+    this.visita_nom_vis=String(this.visitante.nom_vis)
+    this.visita_ape_vis=String(this.visitante.ape_vis)
+    console.log(this.visitareg)
+  }
+
+  consultaVisitantexDni(){
+    this.dni_vis = String(this.visitareg.visita!.dni_vis)
+    console.log(this.dni_vis)
+    this.visitaRegService.consultaVisitasxDni(this.dni_vis).subscribe(
+      (x) => {
+        this.visitantes = x.lista;
+      }      
+    );    
+    this.visitantes[0]=this.visitante
+  }
+  
+  registraVisita() {    
     this.modificarFechaHora(this.auxFechaIng);
     console.log(this.visitareg);
-    // this.visitareg.usuario=this.usuario
     this.visitaRegService.registrarVisita(this.visitareg).subscribe(
       response => {
         alert(response.mensaje);
-      
         this.visitareg = {
           cod_visreg: 0,
           estado_visreg: 0,
@@ -65,7 +133,7 @@ export class AddVisitaComponent implements OnInit {
           fech_ingr_visreg: new Date(),
           // fech_sal_visreg: new Date(),
           visita: {
-            cod_vis:0,
+            cod_vis:this.visitante.cod_vis,
             dni_vis:"",
             nom_vis:""
           },
