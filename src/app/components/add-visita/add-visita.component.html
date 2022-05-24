@@ -13,6 +13,7 @@
                     <label for="dni">DNI</label>
                     <input type="text" class="form-control" name="dni_vis" id="dni_vis" placeholder="Ingrese DNI" [(ngModel)]="visitareg.visita!.dni_vis" />
                 </div>
+
                 <div class="col-lg-2">
                     <br>
                     <button (click)="consultaVisitantexDni()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBuscar" data-backdrop="false" data-dismiss="modal">
@@ -77,7 +78,7 @@
     </form>
 </div>
 
-<!-- Modal -->
+
 <div class="modal fade" id="modalBuscar" tabindex="-1" aria-labelledby="modalBuscarLabel" aria-hidden="true">
     <div class="modal-dialog" style="max-width: 70%;">
         <div class="modal-content">
@@ -124,3 +125,4 @@
         </div>
     </div>
 </div>
+
