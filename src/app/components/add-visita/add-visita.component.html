@@ -103,13 +103,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr id="b" *ngFor="let aux of visitantes; let indexOfelement=index">
-                                        <td>{{aux.cod_vis}}</td>
-                                        <td>{{aux.nom_vis}}  </td>
+                                    <tr *ngFor="let aux of visitantes">
+                                        <td>{{aux.cod_vis}} </td>
+                                        <td>{{aux.nom_vis}} {{aux.ape_vis}}  </td>
                                         <td>{{aux.fechanac_vis}}</td>
                                         <td>{{aux.dni_vis}} </td>
                                         <td>{{aux.correo_vis}}</td>                                        
-                                        <td><button type="button" style="width: 90px" class="btn btn-primary btn-sm" (click)="VisitanteSeleccionado()">Seleccionar</button></td>
+                                        <td><button type="button" style="width: 90px" class="btn btn-primary btn-sm" (click)="VisitanteSeleccionado(aux)">Seleccionar</button></td>
                                     </tr>
                                 </tbody>
                             </table>        
@@ -124,7 +124,3 @@
         </div>
     </div>
 </div>
-<script>
-   var el = (document.getElementById('b')) as HTMLTableRowElement;
-    console.log(el.rowIndex);
-</script>
