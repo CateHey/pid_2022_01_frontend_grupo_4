@@ -12,6 +12,7 @@ import { AddVisitanteComponent } from './components/add-visitante/add-visitante.
 import { AddEdificioComponent } from './components/add-edificio/add-edificio.component';
 import { LoginComponent } from './components/login/login.component';
 import { AppMainComponent } from './app.main.component';
+import { AddVisitaComponent } from './components/add-visita/add-visita.component';
 
 
 
@@ -24,7 +25,8 @@ import { AppMainComponent } from './app.main.component';
     AddDepartamentoComponent,
     AddEdificioComponent,
     LoginComponent,
-    AppMainComponent
+    AppMainComponent,
+    AddVisitaComponent
 
   ],
   imports: [
