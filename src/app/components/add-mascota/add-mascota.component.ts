@@ -147,8 +147,8 @@ mascota: Mascota={
       retorno = false;
     }
 
-    if (this.mascota.edad_mas === undefined || this.mascota.edad_mas == null || this.mascota.edad_mas == 0) {
-      alert("Es requerido ingresar la edad de la mascota y debe ser mayor a 0");
+    if (this.mascota.raza_mas === undefined || this.mascota.raza_mas == null || this.mascota.raza_mas.length<=3) {
+      alert("Es requerido ingresar la raza de la mascota y debe tener una longitud de mínimo 3 letras");
       retorno = false;
     }
 
