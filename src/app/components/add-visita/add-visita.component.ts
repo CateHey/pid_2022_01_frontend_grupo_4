@@ -18,7 +18,7 @@ export class AddVisitaComponent implements OnInit {
   usuario: Usuario = new Usuario();
 
   propietarios: Propietario[] = [];  
-
+  indexOfelement: number=0;
   visitante: Visitante =
   {   cod_vis: 0,
       fech_vis: "",
@@ -99,13 +99,16 @@ export class AddVisitaComponent implements OnInit {
     this.visitareg.fech_ingr_visreg = new Date();
   }
 
-  VisitanteSeleccionado(){
-    console.log(this.visitantes[0])
-    this.visitante=this.visitantes[0]
+  i: number= 0;
+  VisitanteSeleccionado(aux:Visitante){
+    this.i = Number(aux.cod_vis)
+    console.log(this.visitantes[this.i-1])
+    this.visitante=this.visitantes[this.i-1] 
     console.log(this.visitante)
     this.visitareg.visita!.cod_vis=this.visitante.cod_vis
     this.visita_nom_vis=String(this.visitante.nom_vis)
     this.visita_ape_vis=String(this.visitante.ape_vis)
+    this.visitareg.visita!.dni_vis=String(this.visitante.dni_vis)
     console.log(this.visitareg)
   }
 
@@ -115,6 +118,9 @@ export class AddVisitaComponent implements OnInit {
     this.visitaRegService.consultaVisitasxDni(this.dni_vis).subscribe(
       (x) => {
         this.visitantes = x.lista;
+        if(x.lista==0){
+          alert("No hay registros con ese DNI")
+        }
       }      
     );    
     this.visitantes[0]=this.visitante
