@@ -13,6 +13,12 @@
                     <label for="dni">DNI</label>
                     <input type="text" class="form-control" name="dni" readonly [(ngModel)]="visitareg.visita!.dni_vis" />
                 </div>
+                <div class="col-lg-2">
+                    <br>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBuscar">
+                        Buscar
+                    </button>
+                </div>
             </div>
 
             <div class="row" style="margin-top: 3%">
@@ -55,5 +61,27 @@
             </div>
 
         </div>
+
     </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalBuscar" tabindex="-1" aria-labelledby="modalBuscarLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalBuscarLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>
