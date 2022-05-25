@@ -1,0 +1,115 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-12" style="margin-top: 1.5%">
+            <h4>Consulta Visita</h4>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 2%">
+        <label for="nombre" class="col-lg-1">Nombre</label>
+        <div class="col-lg-2">
+            <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="filtNombre" />
+        </div>
+        <label for="dni" class="col-lg-1">DNI</label>
+        <div class="col-lg-2">
+            <input type="text" class="form-control" name="dni" id="dni" [(ngModel)]="filtDni"/>
+        </div>
+        <label for="dni" class="col-lg-1">Estado</label>
+        <div class="col-lg-2">
+            <input type="number" class="form-control" name="est" id="est" [(ngModel)]="filtEstado"/>
+        </div>
+
+        <div class="col-lg-2">
+            <button class="btn btn-primary" style="width: 150px" (click)="consultaVisitasReg()">Filtrar</button>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 6%">
+        <div class="col-md-12">
+            <div class="content">
+
+                <table id="id_table" class="table table-striped table-bordered">
+                    <thead>
+                        <tr style="color: white;">
+                            <th style="width: 5%" style="text-align: center">Vsitante</th>
+                            <th style="width: 15%" style="text-align: center">Ingreso</th>
+                            <th style="width: 15%" style="text-align: center">Salida</th>
+                            <th style="width: 5%" style="text-align: center">Propietario</th>
+                            <th style="width: 31%" style="text-align: center">Estado</th>                             
+                            <th style="width: 31%" style="text-align: center">Comentario</th>                             
+                            <th style="width: 31%" style="text-align: center"></th>
+                        </tr>
+                    </thead>                    
+                    <tbody>
+                        <tr style="color: white;" *ngFor="let aux of visitas_reg">
+                            <td>{{aux.visita!.nom_vis}} {{aux.visita!.ape_vis}} </td>
+                            <td>{{aux.fech_ingr_visreg}} </td>
+                            <td>{{aux.fech_sal_visreg}}</td>
+                            <td>{{aux.propietario!.nom_prop}} {{aux.propietario!.ape_prop}} </td>
+                            <td>
+                                {{getTextoBotonEstado(aux.estado_visreg==null?0:aux.estado_visreg)}}                                                   
+                            </td>                            
+                            <td>{{aux.comentario}} </td>                            
+                            <td>
+                                <button type="button" (click)="seleccionaFila(aux)" class="btn btn-primary" data-toggle="modal" data-target="#modalHoraSalida" data-backdrop="false" data-dismiss="modal">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="modal fade" id="modalHoraSalida" tabindex="-1" style="margin-top: 5%" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 35%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row">
+                    <div class="col-lg-12" style="margin-top: 1.5%">
+                        <h4 style="color: black;">Registro de Hora de Salida</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>                          
+                            <form class="content" (ngSubmit)="actualiza()">
+                                <div class="submit-form">                            
+                                    <div class="row" >
+                                        <div class="col-lg-12">
+                                            <label for="fecha_salida" style="color: black;">Hora Salida</label>
+                                            <input type="time" class="form-control" name="fecha_salida" id="fecha_salida" [(ngModel)]="auxFechaSalida" />
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 3%">
+                                        <div class="col-lg-12">
+                                            <label for="visitante" style="color: black;">Comentario</label>
+                                            <input type="text" class="form-control" name="Comentario" id="Comentario" [(ngModel)]="comentario"  />
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 3%">
+                                        <div class="col-lg-3">
+                                            <button class="btn btn-success" >Guardar</button>   
+                                        </div> 
+                                        <div class="col-lg-3">  
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>                                 
+                                        </div>                                        
+                                    </div>                            
+                                </div>                            
+                            </form>                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

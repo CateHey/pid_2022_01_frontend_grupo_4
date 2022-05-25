@@ -20,6 +20,7 @@ export class AddVisitaComponent implements OnInit {
 
   propietarios: Propietario[] = [];  
   indexOfelement: number=0;
+  
   visitante: Visitante =
   {   cod_vis: 0,
       fech_vis: "",
