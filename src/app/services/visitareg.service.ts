@@ -23,7 +23,7 @@ export class VisitaRegService {
   }
 
   actualiza(aux:VisitaReg):Observable<any>{
-    return this.http.put<any>(baseURL+"/actualizaVisitaReg",aux);
+    return this.http.put<any>(baseURL+"/actualizaVisita",aux);
   }
   consultaVisitasxDni(dni:string):Observable<any>{
     const params = new HttpParams().set("dni_vis", dni);
@@ -35,11 +35,11 @@ export class VisitaRegService {
             .set("nom_vis", nom);
     return this.http.get<any>(baseURL2+"/listaVisitaPorDniNom", {params});
   }
-  consultaVisitasxDniNomEst(nom:string, dni:string, est:number ):Observable<any>{
+  consultaVisitasxDniNomEst(nom:string, dni:string, est:number):Observable<any>{
     const params = new HttpParams()
-            .set("nom_vis", nom)
-            .set("dni_vis", dni)
-            .set("estado_visreg", est);
+            .set("nombre", nom)
+            .set("dni", dni)
+            .set("estado", est +"");
     return this.http.get<any>(baseURL+"/listaVisitaConParametros", {params});
   }
 

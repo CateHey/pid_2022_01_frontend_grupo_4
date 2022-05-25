@@ -17,11 +17,11 @@
         </div>
         <label for="dni" class="col-lg-1">Estado</label>
         <div class="col-lg-2">
-            <input type="number" class="form-control" name="est" id="est" [(ngModel)]="filtEstado"/>
+            <input type="number" class="form-control" name="est" id="est" min="0" max="1" [(ngModel)]="filtEstado"/>
         </div>
 
         <div class="col-lg-2">
-            <button class="btn btn-primary" style="width: 150px" (click)="consultaVisitasReg()">Filtrar</button>
+            <button class="btn btn-primary" style="width: 150px" (click)="consultaVisitasReg()" >Filtrar</button>
         </div>
     </div>
 
@@ -87,7 +87,7 @@
                                     <div class="row" >
                                         <div class="col-lg-12">
                                             <label for="fecha_salida" style="color: black;">Hora Salida</label>
-                                            <input type="time" class="form-control" name="fecha_salida" id="fecha_salida" [(ngModel)]="auxFechaSalida" />
+                                            <input type="time" class="form-control" name="fecha_salida" readonly id="fecha_salida" [(ngModel)]="auxFechaSalida" />
                                         </div>
                                     </div>
                                     <div class="row" style="margin-top: 3%">

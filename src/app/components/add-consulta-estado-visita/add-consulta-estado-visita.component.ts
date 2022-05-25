@@ -27,7 +27,7 @@ export class AddConsultaEstadoVisitaComponent implements OnInit {
 
   filtDni: string = "";
   filtNombre: string = "";
-  filtEstado: number = 0;
+  filtEstado :number=0;
 
   visitas_reg: VisitaReg[]=[];
 
@@ -73,8 +73,8 @@ export class AddConsultaEstadoVisitaComponent implements OnInit {
   consultaVisitasReg(){
       // this.dni_vis = String(this.visitareg.visita!.dni_vis)
       // console.log(this.dni_vis)
-      this.visitas_reg = [];
-      this.visitaRegService.consultaVisitasxDniNomEst(this.filtDni, this.filtNombre, this.filtEstado).subscribe(
+     // this.visitas_reg = [];
+      this.visitaRegService.consultaVisitasxDniNomEst(this.filtNombre,this.filtDni, this.filtEstado).subscribe(
         (x) => {
           this.visitas_reg = x.lista;
           if(x.lista==0){
@@ -89,6 +89,7 @@ export class AddConsultaEstadoVisitaComponent implements OnInit {
 
   seleccionaFila(aux:VisitaReg){
     this.visitareg = aux;
+    this.auxFechaSalida = this.obtenerHoraActualCadena();
     console.log(this.visitareg)
   }
 
@@ -104,7 +105,7 @@ export class AddConsultaEstadoVisitaComponent implements OnInit {
               console.log(response.mensaje);
 
               this.visitas_reg = [];
-              this.visitaRegService.consultaVisitasxDniNomEst(this.filtDni, this.filtNombre, this.filtEstado).subscribe(
+              this.visitaRegService.consultaVisitasxDniNomEst(this.filtDni, this.filtNombre, this.filtEstado?1:0).subscribe(
                 (x) => {
                   this.visitas_reg = x.lista;
                   if(x.lista==0){
