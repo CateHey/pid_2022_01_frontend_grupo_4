@@ -10,6 +10,7 @@ import { AddVisitanteComponent } from './components/add-visitante/add-visitante.
 import { LoginComponent } from './components/login/login.component';
 import { AppMainComponent } from './app.main.component';
 import { AddVisitaComponent } from './components/add-visita/add-visita.component';
+import { ListVisitaComponent } from './components/list-visita/list-visita.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
       {path:"registraPropietario",component:AddPropietarioComponent},
       {path:"registraMascota",component:AddMascotaComponent},
       {path:"registraVisitante",component:AddVisitanteComponent},
-      {path:"registraVisita",component:AddVisitaComponent}
+      {path:"registraVisita",component:AddVisitaComponent},
+      {path:"consultaVisita",component:ListVisitaComponent}
   ]
   }
 ];
