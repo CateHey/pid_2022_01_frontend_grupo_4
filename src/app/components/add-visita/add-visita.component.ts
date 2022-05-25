@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { findIndex } from 'rxjs';
 import { Propietario } from 'src/app/models/propietario.model';
 import { Usuario } from 'src/app/models/usuario.model';
@@ -73,7 +74,7 @@ export class AddVisitaComponent implements OnInit {
       dni_vis:""
     },
     propietario: {
-      cod_prop:0,
+      cod_prop:-1,
       nom_prop:""
     }
   };
@@ -82,12 +83,18 @@ export class AddVisitaComponent implements OnInit {
 
   fechaHoy: Date = new Date();
   auxFechaIng: string = "";
+  auxVisitante: string = "";
+
+  filtroDni: string = "";
+  filtroNombre: string = "";
+
 
   visita_nom_vis:string=""
   visita_ape_vis:string=""
 
   constructor(private visitaRegService:VisitaRegService, 
-            private propietarioService:PropietarioService) { 
+            private propietarioService:PropietarioService,
+            private router: Router) { 
       this.propietarioService.listarPropietario().subscribe(
         response => this.propietarios = response
       );
@@ -106,24 +113,26 @@ export class AddVisitaComponent implements OnInit {
     this.visitante=this.visitantes[this.i-1] 
     console.log(this.visitante)
     this.visitareg.visita!.cod_vis=this.visitante.cod_vis
-    this.visita_nom_vis=String(this.visitante.nom_vis)
-    this.visita_ape_vis=String(this.visitante.ape_vis)
+    // this.visita_nom_vis=String(this.visitante.nom_vis)
+    // this.visita_ape_vis=String(this.visitante.ape_vis)
     this.visitareg.visita!.dni_vis=String(this.visitante.dni_vis)
+    this.auxVisitante = this.visitante.nom_vis + " " + this.visitante.ape_vis;
     console.log(this.visitareg)
   }
 
-  consultaVisitantexDni(){
-    this.dni_vis = String(this.visitareg.visita!.dni_vis)
-    console.log(this.dni_vis)
-    this.visitaRegService.consultaVisitasxDni(this.dni_vis).subscribe(
+  consultaVisitante(){
+    // this.dni_vis = String(this.visitareg.visita!.dni_vis)
+    // console.log(this.dni_vis)
+    this.visitantes = [];
+    this.visitaRegService.consultaVisitasxDniNom(this.filtroDni, this.filtroNombre).subscribe(
       (x) => {
         this.visitantes = x.lista;
         if(x.lista==0){
-          alert("No hay registros con ese DNI")
+          alert("No existe el visitante según criterio de busqueda")
         }
       }      
     );    
-    this.visitantes[0]=this.visitante
+    // this.visitantes[0]=this.visitante
   }
   
   registraVisita() {    
@@ -137,7 +146,6 @@ export class AddVisitaComponent implements OnInit {
           estado_visreg: 0,
           comentario: "",
           fech_ingr_visreg: new Date(),
-          // fech_sal_visreg: new Date(),
           visita: {
             cod_vis:this.visitante.cod_vis,
             dni_vis:"",
@@ -178,6 +186,10 @@ export class AddVisitaComponent implements OnInit {
     
     this.visitareg.fech_ingr_visreg = new Date(this.fechaHoy.getFullYear(), this.fechaHoy.getMonth(), 
         this.fechaHoy.getDate(), strHora, strMin, 0);
+  }
+
+  registraVisitante() {
+    this.router.navigate(['spring/registraVisitante']);
   }
 
 }

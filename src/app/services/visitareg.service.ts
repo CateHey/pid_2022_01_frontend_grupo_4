@@ -25,4 +25,10 @@ export class VisitaRegService {
     const params = new HttpParams().set("dni_vis", dni);
     return this.http.get<any>(baseURL2+"/listaVisitaPorDni", {params});
   }
+  consultaVisitasxDniNom(dni:string, nom:string):Observable<any>{
+    const params = new HttpParams()
+            .set("dni_vis", dni)
+            .set("nom_vis", nom);
+    return this.http.get<any>(baseURL2+"/listaVisitaPorDniNom", {params});
+  }
 }

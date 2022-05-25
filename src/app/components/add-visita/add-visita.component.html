@@ -11,35 +11,39 @@
             <div class="row" style="margin-top: 3%">
                 <div class="col-lg-4">
                     <label for="dni">DNI</label>
-                    <input type="text" class="form-control" name="dni_vis" id="dni_vis" placeholder="Ingrese DNI" [(ngModel)]="visitareg.visita!.dni_vis" />
+                    <input type="text" class="form-control" name="dni_vis" id="dni_vis" readonly [(ngModel)]="visitareg.visita!.dni_vis" />
                 </div>
 
                 <div class="col-lg-2">
                     <br>
-                    <button (click)="consultaVisitantexDni()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBuscar" data-backdrop="false" data-dismiss="modal">
+                    <button (click)="consultaVisitante()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBuscar" data-backdrop="false" data-dismiss="modal">
                         Buscar
+                    </button>&nbsp;
+                    <button (click)="registraVisitante()" type="button" class="btn btn-primary">
+                        <i class="fa fa-edit"></i>
                     </button>
                 </div>
             </div>
 
-            <div class="row" style="margin-top: 3%">
+            <!-- <div class="row" style="margin-top: 3%">
                 <div class="col-lg-4">
                     <label for="visitante">Codigo Visitante</label>
-                    <input type="text" class="form-control" name="visitante" id="visitante" placeholder="Ingreso de Codigo"  [(ngModel)]="visitareg.visita!.cod_vis" />
+                    <input type="text" class="form-control" name="visitante" id="visitante" readonly [(ngModel)]="visitareg.visita!.cod_vis" />
                 </div>
-            </div>
+            </div> -->
+
             <div class="row" style="margin-top: 3%">
                 <div class="col-lg-4">
-                    <label for="visitante">Nombre Visitante</label>
-                    <input type="text" class="form-control" name="nom_visitante" id="nom_visitante" placeholder="Ingreso de Nombre"  [(ngModel)]="visita_nom_vis" />
+                    <label for="visitante">Visitante</label>
+                    <input type="text" class="form-control" name="nom_visitante" id="nom_visitante" readonly [(ngModel)]="auxVisitante" />
                 </div>
             </div>
-            <div class="row" style="margin-top: 3%">
+            <!-- <div class="row" style="margin-top: 3%">
                 <div class="col-lg-4">
                     <label for="visitante">Apellido Visitante</label>
-                    <input type="text" class="form-control" name="ape_visitante" id="ape_visitante" placeholder="Ingreso de Apellido"  [(ngModel)]="visita_ape_vis" />
+                    <input type="text" class="form-control" name="ape_visitante" id="ape_visitante" readonly [(ngModel)]="visita_ape_vis" />
                 </div>
-            </div>
+            </div> -->
 
             <div class="row" style="margin-top: 3%">
                 <div class="col-lg-3">
@@ -79,19 +83,28 @@
 </div>
 
 
-<div class="modal fade" id="modalBuscar" tabindex="-1" aria-labelledby="modalBuscarLabel" aria-hidden="true">
+<div class="modal fade" id="modalBuscar" tabindex="-1" style="margin-top: 5%" aria-hidden="true">
     <div class="modal-dialog" style="max-width: 70%;">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalBuscarLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" name="dni" id="dni" maxlength="8" placeholder="Ingrese DNI" [(ngModel)]="filtroDni" />
+                    </div>
+                    <div class="col-lg-7">
+                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese Nombre" [(ngModel)]="filtroNombre" />
+                    </div>
+                    <div class="col-lg-1">
+                        <button (click)="consultaVisitante()" type="button" class="btn btn-primary">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="content">        
+                        <div class="content">
                             <table id="id_table" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
@@ -100,29 +113,24 @@
                                         <th style="width: 10%">Fecha Nacimiento</th>
                                         <th style="width: 10%">DNI</th>
                                         <th style="width: 31%">Correo</th>
-                                        <th style="width: 7%"></th>        
+                                        <th style="width: 7%"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let aux of visitantes">
                                         <td>{{aux.cod_vis}} </td>
-                                        <td>{{aux.nom_vis}} {{aux.ape_vis}}  </td>
+                                        <td>{{aux.nom_vis}} {{aux.ape_vis}} </td>
                                         <td>{{aux.fechanac_vis}}</td>
                                         <td>{{aux.dni_vis}} </td>
-                                        <td>{{aux.correo_vis}}</td>                                        
-                                        <td><button type="button" style="width: 90px" class="btn btn-primary btn-sm" (click)="VisitanteSeleccionado(aux)">Seleccionar</button></td>
+                                        <td>{{aux.correo_vis}}</td>
+                                        <td><button type="button" style="width: 90px" class="btn btn-primary btn-sm" (click)="VisitanteSeleccionado(aux)" data-dismiss="modal">Seleccionar</button></td>
                                     </tr>
                                 </tbody>
-                            </table>        
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
         </div>
     </div>
 </div>
-
