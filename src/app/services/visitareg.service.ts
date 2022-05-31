@@ -39,7 +39,7 @@ export class VisitaRegService {
     const params = new HttpParams()
             .set("nombre", nom)
             .set("dni", dni)
-            .set("estado", est );
+            .set("estado", est);
     return this.http.get<any>(baseURL+"/listaVisitaConParametros", {params});
   }
 
