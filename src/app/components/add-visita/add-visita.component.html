@@ -63,9 +63,9 @@
                 <div class="col-lg-6">
                     <label for="propietarios">Visita a</label>
                     <select id="propietarios" name="propietarios" placeholder="Selecione edificio" class="form-control" [(ngModel)]="visitareg.propietario!.cod_prop">
-                        <option value="-1"> [Seleccione] </option>   
+                        <option value="-1"> [Seleccione propietario] </option>   
                         <option *ngFor="let aux of propietarios" value="{{aux.cod_prop}}">
-                            {{aux.nom_prop}}
+                            {{aux.nom_prop}} {{aux.ape_prop}} - {{aux.departamento?.num_dep}}
                         </option>   
                     </select>
                 </div>
