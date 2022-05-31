@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { findIndex } from 'rxjs';
+import { Departamento } from 'src/app/models/departamento.model';
 import { Propietario } from 'src/app/models/propietario.model';
 import { Usuario } from 'src/app/models/usuario.model';
 import { Visitante } from 'src/app/models/visitante.model';
@@ -18,6 +19,8 @@ export class AddVisitaComponent implements OnInit {
   dni_vis: string ="";
   usuario: Usuario = new Usuario();
 
+
+  departamentos: Departamento[] = [];
   propietarios: Propietario[] = [];  
   indexOfelement: number=0;
   
