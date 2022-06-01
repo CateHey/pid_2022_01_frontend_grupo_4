@@ -145,6 +145,8 @@ export class AddVisitaComponent implements OnInit {
     this.visitaRegService.registrarVisita(this.visitareg).subscribe(
       response => {
         alert(response.mensaje);
+        this.auxVisitante = "";
+        this.auxFechaIng = this.obtenerHoraActualCadena();
         this.visitareg = {
           cod_visreg: 0,
           estado_visreg: 0,
