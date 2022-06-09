@@ -13,6 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AppMainComponent } from './app.main.component';
 import { AddVisitaComponent } from './components/add-visita/add-visita.component';
 import { AddConsultaEstadoVisitaComponent } from './components/add-consulta-estado-visita/add-consulta-estado-visita.component';
+import { AddBoletaComponent } from './components/add-boleta/add-boleta.component';
 
 
 
@@ -27,7 +28,8 @@ import { AddConsultaEstadoVisitaComponent } from './components/add-consulta-esta
     LoginComponent,
     AppMainComponent,
     AddVisitaComponent,
-    AddConsultaEstadoVisitaComponent
+    AddConsultaEstadoVisitaComponent,
+    AddBoletaComponent
   ],
   imports: [
     BrowserModule,

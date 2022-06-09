@@ -27,7 +27,7 @@ export class AddDepartamentoComponent implements OnInit {
       cod_edi:0,
       nom_edi:"",
     },
-    pre_dep:0,
+    pre_dep:0, 
     fec_reg_dep: new Date(),
     usuario:{
       cod_usu: 0,
