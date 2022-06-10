@@ -1,0 +1,123 @@
+<div class="submit-form">
+
+    <div class="row">
+        <div class="col-lg-12" style="margin-top: 1.5%">
+            <h4>Pago Boleta</h4>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 2%">        
+        <label for="dni" class="col-lg-1">DNI</label>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" name="dni" id="dni" [(ngModel)]="filtDni"/>
+        </div>
+        
+        <label for="servicios">Servicio</label>
+        <div class="col-lg-4"  >
+            <select  id="servicios" name="servicios" placeholder="Selecione servicio" class="form-control"  [(ngModel)] = "filtServicio">
+                <option value="-1"> [Seleccione] </option>   
+                <option *ngFor="let aux of servicios" value="{{aux.nom_serv}}">
+                    {{aux.nom_serv}}
+                </option>   
+            </select>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 2%">
+        <label for="nombre" class="col-lg-1">Nombre</label>
+        <div class="col-lg-2">
+            <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="filtNombre" />
+        </div>       
+        <div class="col-lg-2">
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="estado" name="estado" [(ngModel)]= "filtEstado" checked>
+                <label class="custom-control-label" for="estado">Estado</label>
+        </div>
+        </div>
+        <div class="col-lg-2">
+                <button class="btn btn-primary" style="width: 150px" (click)="consultaBoletas()" >Filtrar</button>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 6%">
+        <div class="col-md-12">
+            <div class="content">
+
+                <table id="id_table" class="table table-striped table-bordered">
+                    <thead>
+                        <tr style="color: white;">
+                            <th style="width: 5%" style="text-align: center">Boleta</th>                            
+                            <th style="width: 31%" style="text-align: center">Servicio</th>   
+                            <th style="width: 15%" style="text-align: center">Propierario</th>
+                            <th style="width: 15%" style="text-align: center">Año</th>
+                            <th style="width: 5%" style="text-align: center">Fecha de Boleta</th>                              
+                            <th style="width: 31%" style="text-align: center"></th>
+                            <th style="width: 31%" style="text-align: center"></th>
+                        </tr>
+                    </thead>                    
+                    <tbody>
+                        <tr style="color: white;" *ngFor="let aux of boletas">
+                            <td>{{ aux.cod_bol }}</td>
+                            <td>{{ aux.servicio!.nom_serv }}</td>
+                            <td>{{aux.propietario!.nom_prop}} {{aux.propietario!.ape_prop}} - {{aux.propietario!.departamento!.num_dep}} </td>
+                            <td>{{ aux.anio}}</td>
+                            <td>{{ aux.fecha_bol }}</td>    
+                            <td>
+                                {{getTextoBotonEstado(aux.est_bol==null?0:aux.est_bol)}}                                                   
+                            </td>                                              
+                            <td>
+                                <button type="button" (click)="seleccionaFila(aux)" class="btn btn-primary" data-toggle="modal" data-target="#modalHoraSalida" data-backdrop="false" data-dismiss="modal">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="modal fade" id="modalHoraSalida" tabindex="-1" style="margin-top: 5%" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 35%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row">
+                    <div class="col-lg-12" style="margin-top: 1.5%">
+                        <h4 style="color: black;">Registro de Hora de Salida</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>                          
+                            <form class="content" (ngSubmit)="actualiza()">
+                                <div class="submit-form">                            
+                                    <div class="row" >
+                                        <div class="col-lg-12">
+                                            <label for="fecha_salida" style="color: black;">¿Desea cambiar el estado a Pagado?</label>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: 3%">
+                                        <div class="col-lg-3">
+                                            <button class="btn btn-success" >Guardar</button>   
+                                        </div> 
+                                        <div class="col-lg-3">  
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>                                 
+                                        </div>                                        
+                                    </div>                            
+                                </div>                            
+                            </form>                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

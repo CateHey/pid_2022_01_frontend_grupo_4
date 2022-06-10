@@ -14,6 +14,7 @@ import { AppMainComponent } from './app.main.component';
 import { AddVisitaComponent } from './components/add-visita/add-visita.component';
 import { AddConsultaEstadoVisitaComponent } from './components/add-consulta-estado-visita/add-consulta-estado-visita.component';
 import { AddBoletaComponent } from './components/add-boleta/add-boleta.component';
+import { AddConsultaActualizaBoletaComponent } from './components/add-consulta-actualiza-boleta/add-consulta-actualiza-boleta.component';
 
 
 
@@ -29,7 +30,8 @@ import { AddBoletaComponent } from './components/add-boleta/add-boleta.component
     AppMainComponent,
     AddVisitaComponent,
     AddConsultaEstadoVisitaComponent,
-    AddBoletaComponent
+    AddBoletaComponent,
+    AddConsultaActualizaBoletaComponent
   ],
   imports: [
     BrowserModule,

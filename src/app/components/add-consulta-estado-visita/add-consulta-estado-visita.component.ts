@@ -50,7 +50,7 @@ export class AddConsultaEstadoVisitaComponent implements OnInit {
     var hoy = new Date();
     var horaHoy = hoy.getHours().toString();
     var minHoy = hoy.getMinutes().toString();
-    
+     
     if (horaHoy.length === 1) {
       horaHoy = "0" + horaHoy;
     } 
