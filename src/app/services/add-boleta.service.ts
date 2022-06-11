@@ -29,5 +29,12 @@ export class AddBoletaService {
             .set("estado", est);
     return this.http.get<any>(baseUrl+"/listaBoletaConParametros", {params});
   }
+  listaBoletaRegistradas(servicio:number, propietario:number, anio:number):Observable<any>{
+    const params = new HttpParams()
+            .set("servicio", servicio)
+            .set("propietario", propietario)
+            .set("anio", anio);
+    return this.http.get<any>(baseUrl+"/listaBoletaRegistradas", {params});
+  }
 
 }

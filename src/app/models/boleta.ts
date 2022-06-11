@@ -8,4 +8,5 @@ export class Boleta {
     anio?: number;
     fecha_bol?: Date;
     est_bol?: number;
+    auxCodigo?: string;
 }

@@ -1,73 +1,80 @@
-<div >
+<div>
 
-    <form class="content" (ngSubmit)="registraBoleta()"  >
-    <div class="submit-form" >
-  
-         <div class="row">
-            <div class="col-lg-12" style="margin-top: 1.5%">
-                <h4>Registro de Boleta</h4>
-            </div> 
-        </div>
-  
-        <div class="row" style="margin-top: 3%">
-            <div class="col-lg-6">
-                <label for="servicios">Servicio</label>
-                <select  id="servicios" name="servicios" placeholder="Selecione servicio" class="form-control"  [(ngModel)] = "boleta.servicio!.cod_serv">
+    <form class="content" (ngSubmit)="registraBoleta()">
+        <div class="submit-form">
+
+            <div class="row">
+                <div class="col-lg-12" style="margin-top: 1.5%">
+                    <h4>Registro de Boleta</h4>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-6">
+                    <label for="servicios">Servicio</label>
+                    <select id="servicios" name="servicios" placeholder="Selecione servicio" class="form-control" [(ngModel)]="boleta.servicio!.cod_serv">
                     <option value="-1"> [Seleccione] </option>   
                     <option *ngFor="let aux of servicios" value="{{aux.cod_serv}}">
                         {{aux.nom_serv}}
                     </option>   
                 </select>
-            </div>                          
-        </div>
-        <div class="row" style="margin-top: 3%">
-            <div class="col-lg-6">
-                <label for="propietarios">Propietario</label>
-                <select  id="propietarios" name="propietarios" placeholder="Selecione propietario" class="form-control"  [(ngModel)] = "boleta.propietario!.cod_prop">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-6">
+                    <label for="propietarios">Propietario</label>
+                    <select id="propietarios" name="propietarios" placeholder="Selecione propietario" class="form-control" [(ngModel)]="boleta.propietario!.cod_prop">
                     <option value="-1"> [Seleccione] </option>   
                     <option *ngFor="let aux of propietarios" value="{{aux.cod_prop}}">
                         {{aux.nom_prop}} {{aux.ape_prop}} - {{aux.departamento!.num_dep}}
                     </option>   
                 </select>
-            </div>                          
-        </div>
-  
-        <div class="row" style="margin-top: 3%">
-            <div class="col-lg-6">
-                <label for="celular">Año</label>
-                <input type="" class="form-control" name="año" placeholder="Ingrese el año" minlength="1999" maxlength="2050" [(ngModel)] ="boleta.anio" />
-            </div>           
-        </div>
-  
-        <div class="row" style="margin-top: 3%"> 
-                <div class="col-lg-12">
-                    <button class="btn btn-success">Enviar</button>
                 </div>
+            </div>
+
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-6">
+                    <label for="celular">Año</label>
+                    <input type="" class="form-control" name="año" placeholder="Ingrese el año" minlength="1999" maxlength="2050" [(ngModel)]="boleta.anio" />
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-12">
+                    <button class="btn btn-success">Generar</button>
+                </div>
+            </div>
+            <br>
+
+            <div class="row" *ngIf="boletas.length != 0" style="margin-top: 3%" style="color: white;">
+                <div class="col-md-12">
+                    <div class="content">
+                        <table id="id_table" class="table table-striped table-bordered">
+                            <thead>
+                                <tr style="color: white;">
+                                    <th style="width: 15%">Código Boleta</th>
+                                    <th style="width: 15%">Servicio</th>
+                                    <th style="width: 15%">Propietario</th>
+                                    <th style="width: 10%">Año</th>
+                                    <th style="width: 15%">Fecha Pago</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let aux of boletas" style="color: white;">
+                                    <td>{{ aux.auxCodigo }}</td>
+                                    <td>{{ aux.servicio!.nom_serv }}</td>
+                                    <td>{{aux.propietario!.nom_prop}} {{aux.propietario!.ape_prop}} - {{aux.propietario!.departamento!.num_dep}} </td>
+                                    <td>{{ aux.anio}}</td>
+                                    <td>{{ aux.fecha_bol }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <div class="row" *ngIf="boletas.length != 0" style="margin-top: 3%" style="color: white;">
-            <div class="col-md-12">
-              <div class="content">               
-                <table id="id_table" class="table table-striped table-bordered"><thead>
-                    <tr style="color: white;">      
-                      <th style="width: 15%">Código Boleta</th>
-                      <th style="width: 15%">Servicio</th>
-                      <th style="width: 15%">Propietario</th>
-                      <th style="width: 10%">Año</th>
-                      <th style="width: 15%">Fecha Pago</th>
-                    </tr>
-                  </thead> <tbody>
-                    <tr *ngFor="let aux of boletas" style="color: white;">      
-                      <td>{{ aux.cod_bol }}</td>
-                      <td>{{ aux.servicio!.nom_serv }}</td>
-                      <td>{{aux.propietario!.nom_prop}} {{aux.propietario!.ape_prop}} - {{aux.propietario!.departamento!.num_dep}} </td>
-                      <td>{{ aux.anio}}</td>
-                      <td>{{ aux.fecha_bol }}</td>      
-                    </tr></tbody></table>
-              </div>
-            </div>
-        </div>
-    
-      </div>
-  
-     </form>
+    </form>
+
+</div>
