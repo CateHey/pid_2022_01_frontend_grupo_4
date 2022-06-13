@@ -57,7 +57,7 @@
                     </thead>                    
                     <tbody>
                         <tr style="color: white;" *ngFor="let aux of boletas">
-                            <td>{{ aux.cod_bol }}</td>
+                            <td>{{ aux.auxCodigo }}</td>
                             <td>{{ aux.servicio!.nom_serv }}</td>
                             <td>{{aux.propietario!.nom_prop}} {{aux.propietario!.ape_prop}} - {{aux.propietario!.departamento!.num_dep}} </td>
                             <td>{{ aux.anio}}</td>
