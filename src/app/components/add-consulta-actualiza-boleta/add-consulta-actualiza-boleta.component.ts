@@ -4,6 +4,7 @@ import { Propietario } from 'src/app/models/propietario.model';
 import { Servicio } from 'src/app/models/servicio';
 import { AddBoletaService } from 'src/app/services/add-boleta.service';
 import { AddServicioService } from 'src/app/services/add-servicio.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-consulta-actualiza-boleta',
@@ -149,6 +150,7 @@ export class AddConsultaActualizaBoletaComponent implements OnInit {
     console.log(this.boleta)
     this.boletaService.actualiza(this.boleta).subscribe(
         response =>{
+              Swal.fire("Mensaje", response.mensaje, 'success');
               console.log(response.mensaje);
 
               this.boletas = [];

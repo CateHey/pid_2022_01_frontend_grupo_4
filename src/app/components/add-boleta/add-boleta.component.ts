@@ -6,6 +6,7 @@ import { Servicio } from 'src/app/models/servicio';
 import { AddBoletaService } from 'src/app/services/add-boleta.service';
 import { AddServicioService } from 'src/app/services/add-servicio.service';
 import { PropietarioService } from 'src/app/services/propietario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-boleta',
@@ -83,6 +84,8 @@ export class AddBoletaComponent implements OnInit {
     // );
   }
 
+  
+
   ngOnInit(): void {
   }
 
@@ -93,7 +96,7 @@ export class AddBoletaComponent implements OnInit {
     this.boletaService.registra(this.boleta).subscribe(
       response => {
         console.log(response.mensaje);
-        alert(response.mensaje);
+        Swal.fire("Mensaje", response.mensaje, 'success');
         
         if (response.mostrar === 'SI') {
           this.boletaService.listaBoletaRegistradas(this.boleta.servicio?.cod_serv!, 
