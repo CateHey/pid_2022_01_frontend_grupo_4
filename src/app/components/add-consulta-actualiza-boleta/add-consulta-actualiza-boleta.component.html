@@ -88,7 +88,7 @@
             <div class="modal-header">
                 <div class="row">
                     <div class="col-lg-12" style="margin-top: 1.5%">
-                        <h4 style="color: black;">Registro de Hora de Salida</h4>
+                        <h4 style="color: black;">Pago de Servicio</h4>
                     </div>
                 </div>
             </div>
@@ -96,17 +96,17 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div>                          
-                            <form class="content" (ngSubmit)="actualiza()">
+                            <form class="content" >
                                 <div class="submit-form">                            
                                     <div class="row" >
                                         <div class="col-lg-12">
-                                            <label for="fecha_salida" style="color: black;">¿Desea cambiar el estado a Pagado?</label>
+                                            <label for="fecha_salida" style="color: black;">¿Desea Pagar el servicio?</label>
                                             
                                         </div>
                                     </div>
                                     <div class="row" style="margin-top: 3%">
                                         <div class="col-lg-3">
-                                            <button class="btn btn-success" >Guardar</button>   
+                                            <button class="btn btn-success" (click)="actualiza()" data-dismiss="modal">Guardar</button>   
                                         </div> 
                                         <div class="col-lg-3">  
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>                                 
