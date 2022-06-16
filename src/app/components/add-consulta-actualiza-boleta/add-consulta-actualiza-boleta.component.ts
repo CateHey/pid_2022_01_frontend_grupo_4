@@ -16,7 +16,7 @@ export class AddConsultaActualizaBoletaComponent implements OnInit {
   boleta: Boleta={
 		cod_bol: 0,
 		servicio: {
-			cod_serv: 0,
+			cod_serv: -1,
 			nom_serv: ""
 		},
 		propietario: {
@@ -78,9 +78,9 @@ export class AddConsultaActualizaBoletaComponent implements OnInit {
     this.servicioService.listarServicio().subscribe(
       response => this.servicios = response
     );
-    this.boletaService.listarBoleta().subscribe(
-      response => this.boletas = response
-    );
+   // this.boletaService.listarBoleta().subscribe(
+    //  response => this.boletas = response
+    //);
 
   }
 
@@ -150,7 +150,7 @@ export class AddConsultaActualizaBoletaComponent implements OnInit {
     console.log(this.boleta)
     this.boletaService.actualiza(this.boleta).subscribe(
         response =>{
-              Swal.fire("Mensaje", response.mensaje, 'success');
+          Swal.fire("Mensaje", response.mensaje, 'success');
               console.log(response.mensaje);
 
               this.boletas = [];
@@ -162,11 +162,11 @@ export class AddConsultaActualizaBoletaComponent implements OnInit {
                   }
                 }      
               );    
-              
+             
               this.boleta ={
                 cod_bol: 0,
                 servicio: {
-                  cod_serv: 0,
+                  cod_serv: -1,
                   nom_serv: ""
                 },
                 propietario: {
