@@ -1,0 +1,91 @@
+<div>
+
+    <form class="content" (ngSubmit)="registraIncidente()">
+        <div class="submit-form">
+
+            <div class="row">
+                <div class="col-lg-12" style="margin-top: 1.5%">
+                    <h4>Registro de Incidente</h4>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-6">
+                    <label for="edificios">Edificio</label>
+                    <select id="edificios" name="edificios" placeholder="Selecione edificios" class="form-control" [(ngModel)] ="incidente.edificio!.cod_edi">
+                    <option value="-1"> [Seleccione] </option>   
+                    <option *ngFor="let aux of edificios" value="{{aux.cod_edi}}">
+                        {{aux.nom_edi}}
+                    </option>   
+                </select>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-6">
+                    <label for="departamentos">Departamento</label>
+                    <select id="departamentos" name="departamentos" placeholder="Selecione departamentos" class="form-control" [(ngModel)] ="incidente.departamento!.cod_dep">
+                    <option value="-1"> [Seleccione] </option>   
+                    <option *ngFor="let aux of departamentos" value="{{aux.cod_dep}}">
+                        {{aux.num_dep}}
+                    </option>   
+                </select>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-6">
+                    <label for="incidentes_desc">Causa de Incidente</label>
+                    <select id="incidentes_desc" name="incidentes_desc" placeholder="Selecione descripcion incidente" class="form-control" [(ngModel)] ="incidente.incidente_desc!.cod_incd">
+                    <option value="-1"> [Seleccione] </option>   
+                    <option *ngFor="let aux of incidentes_desc" value="{{aux.cod_incd}}">
+                        {{aux.nom_incd}}
+                    </option>   
+                </select>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-6">
+                    <label for="celular">Comentario</label>
+                    <input type="" class="form-control" name="comentario" placeholder="Ingrese un comentario" minlength="10" maxlength="200" [(ngModel)] ="incidente.desc_inc" />
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-12">
+                    <button class="btn btn-success">Registrar</button>
+                </div>
+            </div>
+            <br>
+
+            <div class="row" *ngIf="incidentes.length != 0" style="margin-top: 3%" style="color: white;">
+                <div class="col-md-12">
+                    <div class="content">
+                        <table id="id_table" class="table table-striped table-bordered">
+                            <thead>
+                                <tr style="color: white;">
+                                    <th style="width: 15%">Edificio</th>
+                                    <th style="width: 15%">Departamento</th>
+                                    <th style="width: 15%">Causa del Incidente</th>
+                                    <th style="width: 10%">Comentario</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let aux of incidentes" style="color: white;">
+                                    <td>{{ aux.edificio!.nom_edi }}</td>
+                                    <td>{{aux.departamento!.num_dep}}</td>
+                                    <td>{{ aux.incidente_desc!.nom_incd}}</td>
+                                    <td>{{ aux.desc_inc}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
