@@ -12,7 +12,7 @@
             <div class="row" style="margin-top: 3%">
                 <div class="col-lg-6">
                     <label for="servicios">Servicio</label>
-                    <select id="servicios" name="servicios" placeholder="Selecione servicio" class="form-control" [(ngModel)]="boleta.servicio!.cod_serv">
+                    <select id="servicios" name="servicios" placeholder="Selecione servicio" class="form-control" [(ngModel)] ="boleta.servicio!.cod_serv">
                     <option value="-1"> [Seleccione] </option>   
                     <option *ngFor="let aux of servicios" value="{{aux.cod_serv}}">
                         {{aux.nom_serv}}
@@ -23,7 +23,7 @@
             <div class="row" style="margin-top: 3%">
                 <div class="col-lg-6">
                     <label for="propietarios">Propietario</label>
-                    <select id="propietarios" name="propietarios" placeholder="Selecione propietario" class="form-control" [(ngModel)]="boleta.propietario!.cod_prop">
+                    <select id="propietarios" name="propietarios" placeholder="Selecione propietario" class="form-control" [(ngModel)] ="boleta.propietario!.cod_prop">
                     <option value="-1"> [Seleccione] </option>   
                     <option *ngFor="let aux of propietarios" value="{{aux.cod_prop}}">
                         {{aux.nom_prop}} {{aux.ape_prop}} - {{aux.departamento!.num_dep}}
@@ -35,7 +35,7 @@
             <div class="row" style="margin-top: 3%">
                 <div class="col-lg-6">
                     <label for="celular">Año</label>
-                    <input type="" class="form-control" name="año" placeholder="Ingrese el año" minlength="1999" maxlength="2050" [(ngModel)]="boleta.anio" />
+                    <input type="" class="form-control" name="año" placeholder="Ingrese el año" minlength="1999" maxlength="2050" [(ngModel)] ="boleta.anio" />
                 </div>
             </div>
 
