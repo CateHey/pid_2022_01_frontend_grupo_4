@@ -92,7 +92,7 @@ export class AddIncidenteComponent implements OnInit {
         
         if (response.mostrar === 'SI') {
           this.incidenteService.listaIncidentesRegistrados(this.incidente.departamento?.cod_dep!, 
-            this.incidente.edificio?.cod_edi!, this.incidente.incidente_desc?.cod_incd!, this.incidente.desc_inc!).subscribe(
+            this.incidente.edificio?.cod_edi!, this.incidente.incidente_desc?.cod_incd!, 1).subscribe(
             response => this.incidentes = response.lista
           );
 

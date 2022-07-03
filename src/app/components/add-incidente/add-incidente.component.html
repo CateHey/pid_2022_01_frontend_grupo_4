@@ -12,7 +12,7 @@
             <div class="row" style="margin-top: 3%">
                 <div class="col-lg-6">
                     <label for="edificios">Edificio</label>
-                    <select id="edificios" name="edificios" placeholder="Selecione edificios" class="form-control" [(ngModel)] ="incidente.edificio!.cod_edi">
+                    <select id="edificios" name="edificios" placeholder="Selecione edificios" class="form-control" [(ngModel)]="incidente.edificio!.cod_edi">
                     <option value="-1"> [Seleccione] </option>   
                     <option *ngFor="let aux of edificios" value="{{aux.cod_edi}}">
                         {{aux.nom_edi}}
@@ -24,7 +24,7 @@
             <div class="row" style="margin-top: 3%">
                 <div class="col-lg-6">
                     <label for="departamentos">Departamento</label>
-                    <select id="departamentos" name="departamentos" placeholder="Selecione departamentos" class="form-control" [(ngModel)] ="incidente.departamento!.cod_dep">
+                    <select id="departamentos" name="departamentos" placeholder="Selecione departamentos" class="form-control" [(ngModel)]="incidente.departamento!.cod_dep">
                     <option value="-1"> [Seleccione] </option>   
                     <option *ngFor="let aux of departamentos" value="{{aux.cod_dep}}">
                         {{aux.num_dep}}
@@ -36,7 +36,7 @@
             <div class="row" style="margin-top: 3%">
                 <div class="col-lg-6">
                     <label for="incidentes_desc">Causa de Incidente</label>
-                    <select id="incidentes_desc" name="incidentes_desc" placeholder="Selecione descripcion incidente" class="form-control" [(ngModel)] ="incidente.incidente_desc!.cod_incd">
+                    <select id="incidentes_desc" name="incidentes_desc" placeholder="Selecione descripcion incidente" class="form-control" [(ngModel)]="incidente.incidente_desc!.cod_incd">
                     <option value="-1"> [Seleccione] </option>   
                     <option *ngFor="let aux of incidentes_desc" value="{{aux.cod_incd}}">
                         {{aux.nom_incd}}
@@ -48,7 +48,7 @@
             <div class="row" style="margin-top: 3%">
                 <div class="col-lg-6">
                     <label for="celular">Comentario</label>
-                    <input type="" class="form-control" name="comentario" placeholder="Ingrese un comentario" minlength="10" maxlength="200" [(ngModel)] ="incidente.desc_inc" />
+                    <input type="" class="form-control" name="comentario" placeholder="Ingrese un comentario" minlength="10" maxlength="200" [(ngModel)]="incidente.desc_inc" />
                 </div>
             </div>
 

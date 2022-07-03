@@ -14,6 +14,7 @@ import { AddConsultaEstadoVisitaComponent } from './components/add-consulta-esta
 import { AddBoletaComponent } from './components/add-boleta/add-boleta.component';
 import { AddIncidenteComponent } from './components/add-incidente/add-incidente.component';
 import { AddConsultaActualizaBoletaComponent } from './components/add-consulta-actualiza-boleta/add-consulta-actualiza-boleta.component';
+import { AddConsultaEstadoIncidenteComponent } from './components/add-consulta-estado-incidente/add-consulta-estado-incidente.component';
 
 
 const routes: Routes = [
@@ -29,7 +30,8 @@ const routes: Routes = [
       {path:"consultaVisita",component:AddConsultaEstadoVisitaComponent},
       {path:"registraBoleta",component:AddBoletaComponent},      
       {path:"actualizaBoleta",component:AddConsultaActualizaBoletaComponent},
-      {path:"registraIncidente",component:AddIncidenteComponent}
+      {path:"registraIncidente",component:AddIncidenteComponent},
+      {path:"actualizaIncidente",component:AddConsultaEstadoIncidenteComponent}
   ]
   }
 ];

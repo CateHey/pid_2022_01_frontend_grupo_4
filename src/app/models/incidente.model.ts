@@ -10,5 +10,5 @@ export class Incidente {
     edificio?:Edificio;
     incidente_desc?:Incidente_Desc;
     estado_inc?:number;
-
+    auxCodigo?: string;
 }

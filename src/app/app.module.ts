@@ -16,6 +16,7 @@ import { AddConsultaEstadoVisitaComponent } from './components/add-consulta-esta
 import { AddBoletaComponent } from './components/add-boleta/add-boleta.component';
 import { AddConsultaActualizaBoletaComponent } from './components/add-consulta-actualiza-boleta/add-consulta-actualiza-boleta.component';
 import { AddIncidenteComponent } from './components/add-incidente/add-incidente.component';
+import { AddConsultaEstadoIncidenteComponent } from './components/add-consulta-estado-incidente/add-consulta-estado-incidente.component';
 
 
 
@@ -33,7 +34,8 @@ import { AddIncidenteComponent } from './components/add-incidente/add-incidente.
     AddConsultaEstadoVisitaComponent,
     AddBoletaComponent,
     AddConsultaActualizaBoletaComponent,
-    AddIncidenteComponent
+    AddIncidenteComponent,
+    AddConsultaEstadoIncidenteComponent
   ],
   imports: [
     BrowserModule,

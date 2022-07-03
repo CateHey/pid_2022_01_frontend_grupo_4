@@ -21,21 +21,21 @@ export class AddIncidenteService {
   actualiza(aux:Incidente):Observable<any>{
     return this.http.put<any>(baseUrl+"/actualizaIncidente",aux);
   }
-  consultaBoletaxDniNomServEst(nom:string, dni:string, serv:string,est:number):Observable<any>{
+  consultaIncidentexEdifDepEstCausa(edif:string, depa:string, inc:string, est:number):Observable<any>{
     const params = new HttpParams()
-            .set("nombre", nom)
-            .set("dni", dni)
-            .set("servicio", serv)
-            .set("estado", est);
-    return this.http.get<any>(baseUrl+"/listaBoletaConParametros", {params});
+            .set("cod_edi", edif)
+            .set("cod_dep", depa)
+            .set("estado_inc", est)
+            .set("cod_incd", inc);
+    return this.http.get<any>(baseUrl+"/listaIncidenteConParametros", {params});
   }
-  listaIncidentesRegistrados(departamento:number, edificio:number, incidente_desc:number, desc_inc:string):Observable<any>{
+  listaIncidentesRegistrados(departamento:number, edificio:number, incidente_desc:number, estado_inc:number):Observable<any>{
     const params = new HttpParams()
-            .set("departamento", departamento)
-            .set("edificio", edificio)
-            .set("incidente_desc", incidente_desc)
-            .set("desc_inc", desc_inc);
-    return this.http.get<any>(baseUrl+"/listaIncidentesRegistrados", {params});
+            .set("cod_dep", departamento)
+            .set("cod_edi", edificio)
+            .set("cod_incd", incidente_desc)
+            .set("estado_inc", estado_inc);
+    return this.http.get<any>(baseUrl+"/listaIncidenteConParametros", {params});
   }
 
 }
